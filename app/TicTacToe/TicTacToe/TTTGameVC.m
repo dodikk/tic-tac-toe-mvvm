@@ -9,29 +9,46 @@
 #import "TTTGameVC.h"
 
 @interface TTTGameVC ()
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftLineOffset;
+
+// TODO : rename later
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightButtonOffset2;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *upperLineOffset;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLineOffset;
 
 @end
 
 @implementation TTTGameVC
 
-- (void)viewDidLoad {
+-(void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [self setupEqualLineSizeConstraints];
 }
 
-- (void)didReceiveMemoryWarning {
+-(void)setupEqualLineSizeConstraints
+{
+    // TODO : rewrite declaratively
+    
+    static const CGFloat lineWidth = 3.f;
+    
+    CGFloat horizontalOffset = (self.view.frame.size.width - 2.f*lineWidth) / 3.f;
+    
+    CGFloat verticalOffset = (self.view.frame.size.height - 2.f*lineWidth) / 3.f;
+    
+    
+    self.leftLineOffset.constant = horizontalOffset;
+    self.rightButtonOffset2.constant = horizontalOffset;
+    
+    self.upperLineOffset.constant = verticalOffset;
+    self.bottomLineOffset.constant = verticalOffset;
+}
+
+-(void)didReceiveMemoryWarning
+{
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
