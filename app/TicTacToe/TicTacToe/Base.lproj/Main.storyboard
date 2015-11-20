@@ -107,16 +107,25 @@
                                 <rect key="frame" x="0.0" y="0.0" width="146" height="158"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButton00Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="bqr-GK-d10"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPL-aI-GZr">
-                                <rect key="frame" x="154" y="166" width="193" height="214"/>
+                                <rect key="frame" x="154" y="169" width="193" height="214"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButton11Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="uNa-t9-jMt"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep6-lW-1p5">
                                 <rect key="frame" x="0.0" y="166" width="146" height="216"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButton10Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="181-wB-IBc"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-Uo-t3d">
                                 <rect key="frame" x="0.0" y="390" width="146" height="210"/>
@@ -127,11 +136,18 @@
                                 <rect key="frame" x="361" y="0.0" width="119" height="158"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButton02Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="xDy-fY-7gS"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfV-Go-GQN">
                                 <rect key="frame" x="347" y="166" width="133" height="215"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButton02Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="CDa-D2-lgp"/>
+                                    <action selector="onButton12Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="eQB-VH-IW6"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN4-HM-oi5">
                                 <rect key="frame" x="154" y="388" width="193" height="212"/>
@@ -147,6 +163,9 @@
                                 <rect key="frame" x="154" y="0.0" width="185" height="158"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButton01Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="zb2-Oy-HMJ"/>
+                                </connections>
                             </button>
                         </subviews>
                         <animations/>
@@ -179,7 +198,6 @@
                     <connections>
                         <outlet property="bottomLineOffset" destination="Gwe-ac-wtK" id="gsT-Yr-AKC"/>
                         <outlet property="leftLineOffset" destination="0rH-hY-79S" id="3dj-tN-qr4"/>
-                        <outlet property="rightButtonOffset" destination="WfV-Go-GQN" id="SXw-Fi-MLz"/>
                         <outlet property="rightButtonOffset2" destination="NSF-Vu-W31" id="iSK-pd-jUm"/>
                         <outlet property="upperLineOffset" destination="wPB-ou-kDL" id="Yqt-KY-bec"/>
                     </connections>

@@ -9,6 +9,7 @@
 #import "TTTGameVC.h"
 
 @interface TTTGameVC ()
+
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftLineOffset;
 
 // TODO : rename later
@@ -19,6 +20,10 @@
 @end
 
 @implementation TTTGameVC
+{
+    
+}
+
 
 -(void)viewDidLoad
 {
@@ -49,6 +54,42 @@
 {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+
+// TODO : extract to the model library
+// TODO : rename
+struct MyCellPoint
+{
+    unsigned char x;
+    unsigned char y;
+};
+
+-(void)viewModel:(id)viewModel
+didChangeCellState:(struct MyCellPoint)cellPosition
+{
+    // TODO : set a proper image
+}
+
+#pragma mark - row0
+-(IBAction)onButton00Tapped:(id)sender {
+    
+    MyCellPoint cellPosition = {0, 0};
+    [self.viewModel didTapOnCell: cellPosition];
+}
+
+-(IBAction)onButton01Tapped:(id)sender {
+}
+
+-(IBAction)onButton02Tapped:(id)sender {
+}
+
+#pragma mark - row1
+- (IBAction)onButton10Tapped:(id)sender {
+}
+- (IBAction)onButton11Tapped:(id)sender {
+}
+- (IBAction)onButton12Tapped:(id)sender {
 }
 
 @end
