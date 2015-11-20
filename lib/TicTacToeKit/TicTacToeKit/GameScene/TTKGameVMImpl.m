@@ -10,4 +10,12 @@
 
 @implementation TTKGameVMImpl
 
+
+#pragma mark - TTKGameVM
+-(void)view:(id)view
+didTapOnCell:(struct TTKCellPoint)cellPosition
+{
+    NSAssert(NO, @"not implemented");
+}
+
 @end
