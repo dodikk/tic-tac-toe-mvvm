@@ -129,4 +129,28 @@ didTapOnPosessedCell:(struct TTKCellPoint)cellPosition
             didTapOnCell: cellPosition];
 }
 
+-(IBAction)onButton20Tapped:(id)sender
+{
+    static const struct TTKCellPoint cellPosition = {2, 0};
+    
+    [self.viewModel view: self
+            didTapOnCell: cellPosition];
+}
+
+-(IBAction)onButton21Tapped:(id)sender
+{
+    static const struct TTKCellPoint cellPosition = {2, 1};
+    
+    [self.viewModel view: self
+            didTapOnCell: cellPosition];
+}
+
+-(IBAction)onButton22Tapped:(id)sender
+{
+    static const struct TTKCellPoint cellPosition = {2, 2};
+    
+    [self.viewModel view: self
+            didTapOnCell: cellPosition];
+}
+
 @end

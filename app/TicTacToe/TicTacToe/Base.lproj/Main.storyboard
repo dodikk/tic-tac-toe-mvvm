@@ -131,6 +131,9 @@
                                 <rect key="frame" x="0.0" y="390" width="146" height="210"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButton20Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="woV-H2-AQM"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N86-zk-8C8">
                                 <rect key="frame" x="361" y="0.0" width="119" height="158"/>
@@ -153,11 +156,17 @@
                                 <rect key="frame" x="154" y="388" width="193" height="212"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButton21Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="pFv-Kk-3z3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0n-ze-uc9">
                                 <rect key="frame" x="347" y="390" width="133" height="210"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="onButton22Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="4LW-PN-h0n"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQs-qe-hhd">
                                 <rect key="frame" x="154" y="0.0" width="185" height="158"/>
