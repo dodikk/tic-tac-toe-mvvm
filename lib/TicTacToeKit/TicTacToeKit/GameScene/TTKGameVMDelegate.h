@@ -1,13 +1,13 @@
 //
-//  TicTacToeKit.m
+//  TTKGameVMDelegate.h
 //  TicTacToeKit
 //
 //  Created by Oleksandr Dodatko on 20/11/2015.
 //  Copyright © 2015 dodikk. All rights reserved.
 //
 
-#import "TicTacToeKit.h"
+#import <Foundation/Foundation.h>
 
-@implementation TicTacToeKit
+@protocol TTKGameVMDelegate <NSObject>
 
 @end
