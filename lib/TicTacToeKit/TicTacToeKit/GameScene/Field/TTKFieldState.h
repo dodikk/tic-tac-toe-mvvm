@@ -20,6 +20,6 @@
 
 -(BOOL)isGameOver;
 -(BOOL)isDraw;
--(id<TTKPlayer>)winner;
+-(BOOL)isWinnerPlayerX;
 
 @end
