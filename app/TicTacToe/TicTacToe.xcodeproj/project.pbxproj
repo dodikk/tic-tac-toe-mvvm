@@ -9,12 +9,13 @@
 /* Begin PBXBuildFile section */
 		7EE61EB61BFF6F7A00DE8F47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EB51BFF6F7A00DE8F47 /* main.m */; };
 		7EE61EB91BFF6F7A00DE8F47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EB81BFF6F7A00DE8F47 /* AppDelegate.m */; };
-		7EE61EBC1BFF6F7A00DE8F47 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EBB1BFF6F7A00DE8F47 /* ViewController.m */; };
+		7EE61EBC1BFF6F7A00DE8F47 /* TTTMainMenuVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EBB1BFF6F7A00DE8F47 /* TTTMainMenuVC.m */; };
 		7EE61EBF1BFF6F7A00DE8F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE61EBD1BFF6F7A00DE8F47 /* Main.storyboard */; };
 		7EE61EC11BFF6F7A00DE8F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE61EC01BFF6F7A00DE8F47 /* Assets.xcassets */; };
 		7EE61EC41BFF6F7A00DE8F47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE61EC21BFF6F7A00DE8F47 /* LaunchScreen.storyboard */; };
 		7EE61ECF1BFF6F7A00DE8F47 /* TicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61ECE1BFF6F7A00DE8F47 /* TicTacToeTests.m */; };
 		7EE61EF61BFF713E00DE8F47 /* libTicTacToeKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE61EF31BFF712C00DE8F47 /* libTicTacToeKit.a */; };
+		7EE61EF91BFF723F00DE8F47 /* TTTGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EF81BFF723F00DE8F47 /* TTTGameVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,8 +47,8 @@
 		7EE61EB51BFF6F7A00DE8F47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EE61EB71BFF6F7A00DE8F47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7EE61EB81BFF6F7A00DE8F47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7EE61EBA1BFF6F7A00DE8F47 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		7EE61EBB1BFF6F7A00DE8F47 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		7EE61EBA1BFF6F7A00DE8F47 /* TTTMainMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTTMainMenuVC.h; sourceTree = "<group>"; };
+		7EE61EBB1BFF6F7A00DE8F47 /* TTTMainMenuVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TTTMainMenuVC.m; sourceTree = "<group>"; };
 		7EE61EBE1BFF6F7A00DE8F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EE61EC01BFF6F7A00DE8F47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EE61EC31BFF6F7A00DE8F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -56,6 +57,8 @@
 		7EE61ECE1BFF6F7A00DE8F47 /* TicTacToeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToeTests.m; sourceTree = "<group>"; };
 		7EE61ED01BFF6F7A00DE8F47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7EE61EEE1BFF712C00DE8F47 /* TicTacToeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TicTacToeKit.xcodeproj; path = ../../lib/TicTacToeKit/TicTacToeKit.xcodeproj; sourceTree = "<group>"; };
+		7EE61EF71BFF723F00DE8F47 /* TTTGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTGameVC.h; sourceTree = "<group>"; };
+		7EE61EF81BFF723F00DE8F47 /* TTTGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTGameVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,8 +104,10 @@
 			children = (
 				7EE61EB71BFF6F7A00DE8F47 /* AppDelegate.h */,
 				7EE61EB81BFF6F7A00DE8F47 /* AppDelegate.m */,
-				7EE61EBA1BFF6F7A00DE8F47 /* ViewController.h */,
-				7EE61EBB1BFF6F7A00DE8F47 /* ViewController.m */,
+				7EE61EBA1BFF6F7A00DE8F47 /* TTTMainMenuVC.h */,
+				7EE61EBB1BFF6F7A00DE8F47 /* TTTMainMenuVC.m */,
+				7EE61EF71BFF723F00DE8F47 /* TTTGameVC.h */,
+				7EE61EF81BFF723F00DE8F47 /* TTTGameVC.m */,
 				7EE61EBD1BFF6F7A00DE8F47 /* Main.storyboard */,
 				7EE61EC01BFF6F7A00DE8F47 /* Assets.xcassets */,
 				7EE61EC21BFF6F7A00DE8F47 /* LaunchScreen.storyboard */,
@@ -254,7 +259,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EE61EBC1BFF6F7A00DE8F47 /* ViewController.m in Sources */,
+				7EE61EBC1BFF6F7A00DE8F47 /* TTTMainMenuVC.m in Sources */,
+				7EE61EF91BFF723F00DE8F47 /* TTTGameVC.m in Sources */,
 				7EE61EB91BFF6F7A00DE8F47 /* AppDelegate.m in Sources */,
 				7EE61EB61BFF6F7A00DE8F47 /* main.m in Sources */,
 			);
