@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7E289B651BFF8542004F2BC3 /* TTKGameVMImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E289B641BFF8542004F2BC3 /* TTKGameVMImpl.m */; };
+		7E289B6B1BFF8CB6004F2BC3 /* TTKMatrixFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E289B6A1BFF8CB6004F2BC3 /* TTKMatrixFieldModel.m */; };
 		7EE61EE61BFF70EE00DE8F47 /* TicTacToeKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7EE61EE51BFF70EE00DE8F47 /* TicTacToeKit.h */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,8 @@
 		7E289B641BFF8542004F2BC3 /* TTKGameVMImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTKGameVMImpl.m; sourceTree = "<group>"; };
 		7E289B671BFF8654004F2BC3 /* TTKFieldState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKFieldState.h; sourceTree = "<group>"; };
 		7E289B681BFF86A8004F2BC3 /* TTKMutableFieldState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKMutableFieldState.h; sourceTree = "<group>"; };
+		7E289B691BFF8CB6004F2BC3 /* TTKMatrixFieldModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKMatrixFieldModel.h; sourceTree = "<group>"; };
+		7E289B6A1BFF8CB6004F2BC3 /* TTKMatrixFieldModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTKMatrixFieldModel.m; sourceTree = "<group>"; };
 		7EE61EE21BFF70EE00DE8F47 /* libTicTacToeKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTicTacToeKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE61EE51BFF70EE00DE8F47 /* TicTacToeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicTacToeKit.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +84,8 @@
 			children = (
 				7E289B671BFF8654004F2BC3 /* TTKFieldState.h */,
 				7E289B681BFF86A8004F2BC3 /* TTKMutableFieldState.h */,
+				7E289B691BFF8CB6004F2BC3 /* TTKMatrixFieldModel.h */,
+				7E289B6A1BFF8CB6004F2BC3 /* TTKMatrixFieldModel.m */,
 			);
 			path = Field;
 			sourceTree = "<group>";
@@ -169,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7E289B651BFF8542004F2BC3 /* TTKGameVMImpl.m in Sources */,
+				7E289B6B1BFF8CB6004F2BC3 /* TTKMatrixFieldModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
