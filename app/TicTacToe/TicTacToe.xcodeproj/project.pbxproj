@@ -14,6 +14,7 @@
 		7EE61EC11BFF6F7A00DE8F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE61EC01BFF6F7A00DE8F47 /* Assets.xcassets */; };
 		7EE61EC41BFF6F7A00DE8F47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE61EC21BFF6F7A00DE8F47 /* LaunchScreen.storyboard */; };
 		7EE61ECF1BFF6F7A00DE8F47 /* TicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61ECE1BFF6F7A00DE8F47 /* TicTacToeTests.m */; };
+		7EE61EF61BFF713E00DE8F47 /* libTicTacToeKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE61EF31BFF712C00DE8F47 /* libTicTacToeKit.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -23,6 +24,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = 7EE61EB01BFF6F7A00DE8F47;
 			remoteInfo = TicTacToe;
+		};
+		7EE61EF21BFF712C00DE8F47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EE61EEE1BFF712C00DE8F47 /* TicTacToeKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 7EE61EE21BFF70EE00DE8F47;
+			remoteInfo = TicTacToeKit;
+		};
+		7EE61EF41BFF713700DE8F47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7EE61EEE1BFF712C00DE8F47 /* TicTacToeKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 7EE61EE11BFF70EE00DE8F47;
+			remoteInfo = TicTacToeKit;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -40,6 +55,7 @@
 		7EE61ECA1BFF6F7A00DE8F47 /* TicTacToeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE61ECE1BFF6F7A00DE8F47 /* TicTacToeTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToeTests.m; sourceTree = "<group>"; };
 		7EE61ED01BFF6F7A00DE8F47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7EE61EEE1BFF712C00DE8F47 /* TicTacToeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TicTacToeKit.xcodeproj; path = ../../lib/TicTacToeKit/TicTacToeKit.xcodeproj; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +63,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7EE61EF61BFF713E00DE8F47 /* libTicTacToeKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +80,7 @@
 		7EE61EA81BFF6F7A00DE8F47 = {
 			isa = PBXGroup;
 			children = (
+				7EE61EEE1BFF712C00DE8F47 /* TicTacToeKit.xcodeproj */,
 				7EE61EB31BFF6F7A00DE8F47 /* TicTacToe */,
 				7EE61ECD1BFF6F7A00DE8F47 /* TicTacToeTests */,
 				7EE61EB21BFF6F7A00DE8F47 /* Products */,
@@ -111,6 +129,14 @@
 			path = TicTacToeTests;
 			sourceTree = "<group>";
 		};
+		7EE61EEF1BFF712C00DE8F47 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7EE61EF31BFF712C00DE8F47 /* libTicTacToeKit.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -125,6 +151,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				7EE61EF51BFF713700DE8F47 /* PBXTargetDependency */,
 			);
 			name = TicTacToe;
 			productName = TicTacToe;
@@ -178,6 +205,12 @@
 			mainGroup = 7EE61EA81BFF6F7A00DE8F47;
 			productRefGroup = 7EE61EB21BFF6F7A00DE8F47 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 7EE61EEF1BFF712C00DE8F47 /* Products */;
+					ProjectRef = 7EE61EEE1BFF712C00DE8F47 /* TicTacToeKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				7EE61EB01BFF6F7A00DE8F47 /* TicTacToe */,
@@ -185,6 +218,16 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		7EE61EF31BFF712C00DE8F47 /* libTicTacToeKit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libTicTacToeKit.a;
+			remoteRef = 7EE61EF21BFF712C00DE8F47 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		7EE61EAF1BFF6F7A00DE8F47 /* Resources */ = {
@@ -232,6 +275,11 @@
 			isa = PBXTargetDependency;
 			target = 7EE61EB01BFF6F7A00DE8F47 /* TicTacToe */;
 			targetProxy = 7EE61ECB1BFF6F7A00DE8F47 /* PBXContainerItemProxy */;
+		};
+		7EE61EF51BFF713700DE8F47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = TicTacToeKit;
+			targetProxy = 7EE61EF41BFF713700DE8F47 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
