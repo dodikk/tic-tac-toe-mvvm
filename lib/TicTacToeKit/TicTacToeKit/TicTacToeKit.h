@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-@interface TicTacToeKit : NSObject
+#import <TikTacToeKit/TTKCellPoint.h>
+#import <TikTacToeKit/TTKGameVM.h>
+#import <TikTacToeKit/TTKGameVMDelegate.h>
 
-@end
+
