@@ -16,6 +16,9 @@
 		7EE61ECF1BFF6F7A00DE8F47 /* TicTacToeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61ECE1BFF6F7A00DE8F47 /* TicTacToeTests.m */; };
 		7EE61EF61BFF713E00DE8F47 /* libTicTacToeKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE61EF31BFF712C00DE8F47 /* libTicTacToeKit.a */; };
 		7EE61EF91BFF723F00DE8F47 /* TTTGameVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EF81BFF723F00DE8F47 /* TTTGameVC.m */; };
+		7EE61F021BFF74C100DE8F47 /* TTTColorThemePOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61F011BFF74C100DE8F47 /* TTTColorThemePOD.m */; };
+		7EE61F051BFF74F900DE8F47 /* TTTColorThemeBuilder.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61F041BFF74F900DE8F47 /* TTTColorThemeBuilder.m */; };
+		7EE61F081BFF756700DE8F47 /* TTTMenuThemePOD.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61F071BFF756700DE8F47 /* TTTMenuThemePOD.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +62,15 @@
 		7EE61EEE1BFF712C00DE8F47 /* TicTacToeKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TicTacToeKit.xcodeproj; path = ../../lib/TicTacToeKit/TicTacToeKit.xcodeproj; sourceTree = "<group>"; };
 		7EE61EF71BFF723F00DE8F47 /* TTTGameVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTGameVC.h; sourceTree = "<group>"; };
 		7EE61EF81BFF723F00DE8F47 /* TTTGameVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTGameVC.m; sourceTree = "<group>"; };
+		7EE61EFE1BFF748F00DE8F47 /* TTTColorTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTColorTheme.h; sourceTree = "<group>"; };
+		7EE61EFF1BFF749900DE8F47 /* TTTMenuTheme.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTMenuTheme.h; sourceTree = "<group>"; };
+		7EE61F001BFF74C100DE8F47 /* TTTColorThemePOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTColorThemePOD.h; sourceTree = "<group>"; };
+		7EE61F011BFF74C100DE8F47 /* TTTColorThemePOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTColorThemePOD.m; sourceTree = "<group>"; };
+		7EE61F031BFF74F900DE8F47 /* TTTColorThemeBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTColorThemeBuilder.h; sourceTree = "<group>"; };
+		7EE61F041BFF74F900DE8F47 /* TTTColorThemeBuilder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTColorThemeBuilder.m; sourceTree = "<group>"; };
+		7EE61F061BFF756700DE8F47 /* TTTMenuThemePOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTMenuThemePOD.h; sourceTree = "<group>"; };
+		7EE61F071BFF756700DE8F47 /* TTTMenuThemePOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTMenuThemePOD.m; sourceTree = "<group>"; };
+		7EE61F091BFF761600DE8F47 /* TicTacToe.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicTacToe.pch; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +95,7 @@
 		7EE61EA81BFF6F7A00DE8F47 = {
 			isa = PBXGroup;
 			children = (
+				7EE61F091BFF761600DE8F47 /* TicTacToe.pch */,
 				7EE61EEE1BFF712C00DE8F47 /* TicTacToeKit.xcodeproj */,
 				7EE61EB31BFF6F7A00DE8F47 /* TicTacToe */,
 				7EE61ECD1BFF6F7A00DE8F47 /* TicTacToeTests */,
@@ -102,6 +115,7 @@
 		7EE61EB31BFF6F7A00DE8F47 /* TicTacToe */ = {
 			isa = PBXGroup;
 			children = (
+				7EE61EFD1BFF747600DE8F47 /* ColorTheme */,
 				7EE61EB71BFF6F7A00DE8F47 /* AppDelegate.h */,
 				7EE61EB81BFF6F7A00DE8F47 /* AppDelegate.m */,
 				7EE61EBA1BFF6F7A00DE8F47 /* TTTMainMenuVC.h */,
@@ -140,6 +154,21 @@
 				7EE61EF31BFF712C00DE8F47 /* libTicTacToeKit.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		7EE61EFD1BFF747600DE8F47 /* ColorTheme */ = {
+			isa = PBXGroup;
+			children = (
+				7EE61EFE1BFF748F00DE8F47 /* TTTColorTheme.h */,
+				7EE61EFF1BFF749900DE8F47 /* TTTMenuTheme.h */,
+				7EE61F061BFF756700DE8F47 /* TTTMenuThemePOD.h */,
+				7EE61F071BFF756700DE8F47 /* TTTMenuThemePOD.m */,
+				7EE61F001BFF74C100DE8F47 /* TTTColorThemePOD.h */,
+				7EE61F011BFF74C100DE8F47 /* TTTColorThemePOD.m */,
+				7EE61F031BFF74F900DE8F47 /* TTTColorThemeBuilder.h */,
+				7EE61F041BFF74F900DE8F47 /* TTTColorThemeBuilder.m */,
+			);
+			path = ColorTheme;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -261,7 +290,10 @@
 			files = (
 				7EE61EBC1BFF6F7A00DE8F47 /* TTTMainMenuVC.m in Sources */,
 				7EE61EF91BFF723F00DE8F47 /* TTTGameVC.m in Sources */,
+				7EE61F081BFF756700DE8F47 /* TTTMenuThemePOD.m in Sources */,
+				7EE61F021BFF74C100DE8F47 /* TTTColorThemePOD.m in Sources */,
 				7EE61EB91BFF6F7A00DE8F47 /* AppDelegate.m in Sources */,
+				7EE61F051BFF74F900DE8F47 /* TTTColorThemeBuilder.m in Sources */,
 				7EE61EB61BFF6F7A00DE8F47 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -345,8 +377,11 @@
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TicTacToe.pch;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -405,7 +440,10 @@
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = YES;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = TicTacToe.pch;
 				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
