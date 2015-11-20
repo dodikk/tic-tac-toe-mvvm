@@ -1,0 +1,28 @@
+//
+//  TicTacToe.pch
+//  TicTacToe
+//
+//  Created by Oleksandr Dodatko on 20/11/2015.
+//  Copyright © 2015 dodikk. All rights reserved.
+//
+
+#ifndef TicTacToe_pch
+#define TicTacToe_pch
+
+
+#ifdef __OBJC__
+    #ifdef __cplusplus
+    #endif
+
+    #import "TTTColorTheme.h"
+    #import "TTTMenuTheme.h"
+
+    #import <Foundation/Foundation.h>
+    #import <UIKit/UIKit.h>
+#endif
+
+#ifdef __cplusplus
+#endif
+
+
+#endif /* TicTacToe_pch */

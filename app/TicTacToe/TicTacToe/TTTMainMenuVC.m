@@ -18,11 +18,29 @@
 @implementation TTTMainMenuVC
 
 
-
 -(void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
+    
+    [self cleanupStoryboardStubs];
+    [self setupColours];
+}
+
+-(void)setupColours
+{
+    id<TTTMenuTheme> theme = [[TTTColorThemeBuilder currentTheme] menuTheme];
+}
+
+-(void)setupLocalizations
+{
+    
+}
+
+-(void)cleanupStoryboardStubs
+{
+    self.view              .backgroundColor = [UIColor clearColor];
+    self.firstPlayerButton .backgroundColor = [UIColor clearColor];
+    self.secondPlayerButton.backgroundColor = [UIColor clearColor];
 }
 
 -(void)didReceiveMemoryWarning
