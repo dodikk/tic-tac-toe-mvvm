@@ -26,6 +26,7 @@ didTapOnCell:(struct TTKCellPoint)cellPosition;
  Typically a weak property
  */
 -(id<TTKGameVMDelegate>)vcDelegate;
+-(void)setVcDelegate:(id<TTKGameVMDelegate>)value;
 
 
 @end
