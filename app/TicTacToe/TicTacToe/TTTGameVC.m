@@ -21,9 +21,16 @@
 
 @implementation TTTGameVC
 {
-    
 }
 
+
+-(void)setViewModel:(id<TTKGameVM>)viewModel
+{
+    NSParameterAssert(nil == self->_viewModel);
+    
+    self->_viewModel = viewModel;
+    [viewModel setVcDelegate: self];
+}
 
 -(void)viewDidLoad
 {
@@ -57,39 +64,69 @@
 }
 
 
-// TODO : extract to the model library
-// TODO : rename
-struct MyCellPoint
-{
-    unsigned char x;
-    unsigned char y;
-};
 
--(void)viewModel:(id)viewModel
-didChangeCellState:(struct MyCellPoint)cellPosition
+#pragma mark - TTKGameVMDelegate
+-(void)viewModel:(id<TTKGameVM>)viewModel
+didChangeCellState:(struct TTKCellPoint)cellPosition
 {
-    // TODO : set a proper image
+    NSAssert(NO, @"not implemented");
 }
+
+-(void)viewModel:(id<TTKGameVM>)viewModel
+didTapOnPosessedCell:(struct TTKCellPoint)cellPosition
+{
+    NSAssert(NO, @"not implemented");
+}
+
 
 #pragma mark - row0
--(IBAction)onButton00Tapped:(id)sender {
+-(IBAction)onButton00Tapped:(id)sender
+{
+    static const struct TTKCellPoint cellPosition = {0, 0};
     
-    struct MyCellPoint cellPosition = {0, 0};
-    [self.viewModel didTapOnCell: cellPosition];
+    [self.viewModel view: self
+            didTapOnCell: cellPosition];
 }
 
--(IBAction)onButton01Tapped:(id)sender {
+-(IBAction)onButton01Tapped:(id)sender
+{
+    static const struct TTKCellPoint cellPosition = {0, 1};
+    
+    [self.viewModel view: self
+            didTapOnCell: cellPosition];
 }
 
--(IBAction)onButton02Tapped:(id)sender {
+-(IBAction)onButton02Tapped:(id)sender
+{
+    static const struct TTKCellPoint cellPosition = {0, 2};
+    
+    [self.viewModel view: self
+            didTapOnCell: cellPosition];
 }
 
 #pragma mark - row1
-- (IBAction)onButton10Tapped:(id)sender {
+-(IBAction)onButton10Tapped:(id)sender
+{
+    static const struct TTKCellPoint cellPosition = {1, 0};
+    
+    [self.viewModel view: self
+            didTapOnCell: cellPosition];
 }
-- (IBAction)onButton11Tapped:(id)sender {
+
+-(IBAction)onButton11Tapped:(id)sender
+{
+    static const struct TTKCellPoint cellPosition = {1, 1};
+    
+    [self.viewModel view: self
+            didTapOnCell: cellPosition];
 }
-- (IBAction)onButton12Tapped:(id)sender {
+
+-(IBAction)onButton12Tapped:(id)sender
+{
+    static const struct TTKCellPoint cellPosition = {1, 2};
+    
+    [self.viewModel view: self
+            didTapOnCell: cellPosition];
 }
 
 @end

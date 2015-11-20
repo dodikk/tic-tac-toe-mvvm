@@ -7,7 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <TicTacToeKit/TicTacToeKit.h>
 
-@interface TTTGameVC : UIViewController
+@protocol TTKGameVM;
+
+
+@interface TTTGameVC : UIViewController<TTKGameVMDelegate>
+
+/**
+ Write-once property
+ */
+@property (nonatomic) id<TTKGameVM> viewModel;
 
 @end
