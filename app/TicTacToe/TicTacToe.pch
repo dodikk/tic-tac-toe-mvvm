@@ -16,6 +16,9 @@
 
     #import "TTTColorTheme.h"
     #import "TTTMenuTheme.h"
+    #import "TTTColorThemeBuilder.h"
+
+    #import <TicTacToeKit/TicTacToeKit.h>
 
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
