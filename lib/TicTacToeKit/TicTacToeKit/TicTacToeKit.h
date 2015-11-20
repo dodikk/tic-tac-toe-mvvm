@@ -8,8 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-#import <TikTacToeKit/TTKCellPoint.h>
-#import <TikTacToeKit/TTKGameVM.h>
-#import <TikTacToeKit/TTKGameVMDelegate.h>
+#import <TicTacToeKit/Types/TTKCellPoint.h>
+#import <TicTacToeKit/GameScene/TTKGameVM.h>
+#import <TicTacToeKit/GameScene/TTKGameVMDelegate.h>
 
 
