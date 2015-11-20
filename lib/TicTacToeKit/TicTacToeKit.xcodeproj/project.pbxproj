@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E289B651BFF8542004F2BC3 /* TTKGameVMImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E289B641BFF8542004F2BC3 /* TTKGameVMImpl.m */; };
 		7EE61EE61BFF70EE00DE8F47 /* TicTacToeKit.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 7EE61EE51BFF70EE00DE8F47 /* TicTacToeKit.h */; };
-		7EE61EE81BFF70EE00DE8F47 /* TicTacToeKit.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EE71BFF70EE00DE8F47 /* TicTacToeKit.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,9 +25,16 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E289B5F1BFF844F004F2BC3 /* TTKGameVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKGameVM.h; sourceTree = "<group>"; };
+		7E289B601BFF8461004F2BC3 /* TTKPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKPlayer.h; sourceTree = "<group>"; };
+		7E289B611BFF84D6004F2BC3 /* TTKGameVMDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKGameVMDelegate.h; sourceTree = "<group>"; };
+		7E289B621BFF84F6004F2BC3 /* TTKCellPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTKCellPoint.h; sourceTree = "<group>"; };
+		7E289B631BFF8542004F2BC3 /* TTKGameVMImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKGameVMImpl.h; sourceTree = "<group>"; };
+		7E289B641BFF8542004F2BC3 /* TTKGameVMImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTKGameVMImpl.m; sourceTree = "<group>"; };
+		7E289B671BFF8654004F2BC3 /* TTKFieldState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKFieldState.h; sourceTree = "<group>"; };
+		7E289B681BFF86A8004F2BC3 /* TTKMutableFieldState.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKMutableFieldState.h; sourceTree = "<group>"; };
 		7EE61EE21BFF70EE00DE8F47 /* libTicTacToeKit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libTicTacToeKit.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE61EE51BFF70EE00DE8F47 /* TicTacToeKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TicTacToeKit.h; sourceTree = "<group>"; };
-		7EE61EE71BFF70EE00DE8F47 /* TicTacToeKit.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TicTacToeKit.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +48,43 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E289B5B1BFF8402004F2BC3 /* Types */ = {
+			isa = PBXGroup;
+			children = (
+				7E289B621BFF84F6004F2BC3 /* TTKCellPoint.h */,
+			);
+			path = Types;
+			sourceTree = "<group>";
+		};
+		7E289B5C1BFF8421004F2BC3 /* GameScene */ = {
+			isa = PBXGroup;
+			children = (
+				7E289B661BFF8644004F2BC3 /* Field */,
+				7E289B5F1BFF844F004F2BC3 /* TTKGameVM.h */,
+				7E289B611BFF84D6004F2BC3 /* TTKGameVMDelegate.h */,
+				7E289B601BFF8461004F2BC3 /* TTKPlayer.h */,
+				7E289B631BFF8542004F2BC3 /* TTKGameVMImpl.h */,
+				7E289B641BFF8542004F2BC3 /* TTKGameVMImpl.m */,
+			);
+			path = GameScene;
+			sourceTree = "<group>";
+		};
+		7E289B5D1BFF8421004F2BC3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		7E289B661BFF8644004F2BC3 /* Field */ = {
+			isa = PBXGroup;
+			children = (
+				7E289B671BFF8654004F2BC3 /* TTKFieldState.h */,
+				7E289B681BFF86A8004F2BC3 /* TTKMutableFieldState.h */,
+			);
+			path = Field;
+			sourceTree = "<group>";
+		};
 		7EE61ED91BFF70EE00DE8F47 = {
 			isa = PBXGroup;
 			children = (
@@ -60,8 +104,10 @@
 		7EE61EE41BFF70EE00DE8F47 /* TicTacToeKit */ = {
 			isa = PBXGroup;
 			children = (
+				7E289B5C1BFF8421004F2BC3 /* GameScene */,
+				7E289B5D1BFF8421004F2BC3 /* Menu */,
+				7E289B5B1BFF8402004F2BC3 /* Types */,
 				7EE61EE51BFF70EE00DE8F47 /* TicTacToeKit.h */,
-				7EE61EE71BFF70EE00DE8F47 /* TicTacToeKit.m */,
 			);
 			path = TicTacToeKit;
 			sourceTree = "<group>";
@@ -122,7 +168,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EE61EE81BFF70EE00DE8F47 /* TicTacToeKit.m in Sources */,
+				7E289B651BFF8542004F2BC3 /* TTKGameVMImpl.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,6 +228,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = .;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -236,6 +283,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = .;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
@@ -280,6 +328,7 @@
 				7EE61EED1BFF70EE00DE8F47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
