@@ -74,7 +74,7 @@ didChangeCellState:(struct MyCellPoint)cellPosition
 #pragma mark - row0
 -(IBAction)onButton00Tapped:(id)sender {
     
-    MyCellPoint cellPosition = {0, 0};
+    struct MyCellPoint cellPosition = {0, 0};
     [self.viewModel didTapOnCell: cellPosition];
 }
 
