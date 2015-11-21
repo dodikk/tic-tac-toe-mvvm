@@ -39,7 +39,7 @@
                    localizer:(id<TTKGameOverLocalizer>)localizer
 {
     NSParameterAssert(nil != fieldModel);
-    NSParameterAssert(nil != localizer);
+    NSParameterAssert(nil != localizer );
     
     self = [super init];
     if (nil == self)
@@ -154,8 +154,6 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     }
 }
 
-
-// TODO : localize me
 -(NSString*)gameOverMessage
 {
     if (![self->_fieldModel isGameOver])
