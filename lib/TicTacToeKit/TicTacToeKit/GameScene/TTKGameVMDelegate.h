@@ -13,6 +13,8 @@
 
 @protocol TTKGameVMDelegate <NSObject>
 
+-(void)viewModelDidDetectGameOver:(id<TTKGameVM>)viewModel;
+
 -(void)viewModel:(id<TTKGameVM>)viewModel
 didChangeCellState:(struct TTKCellPoint)cellPosition;
 
