@@ -235,4 +235,25 @@
     XCTAssertFalse([self->_field isWinnerPlayerX]);
 }
 
+
+// - - -
+// - x -
+// - - -
+-(void)testIncompleteGame
+{
+    // GIVEN
+    [self->_field takeField: (struct TTKCellPoint){1, 1} byX: YES];
+    
+    // THEN
+    XCTAssertFalse([self->_field isGameOver]);
+    XCTAssertFalse([self->_field isDraw]);
+    XCTAssertFalse([self->_field isWinnerPlayerX]);
+}
+
 @end
+
+
+// - - -
+// - - -
+// - - -
+
