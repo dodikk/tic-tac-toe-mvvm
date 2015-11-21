@@ -29,15 +29,16 @@
     NSUInteger _turnFailureCount;
     
     NSUInteger _gameOverCount;
-    
+    NSUInteger _afterGameOverCount;
 }
 
 -(void)cleanupCounters
 {
     self->_lastModifiedCell = (struct TTKCellPoint){100, 100};
-    self->_turnCount = 0;
-    self->_turnFailureCount = 0;
-    self->_gameOverCount = 0;
+    self->_turnCount          = 0;
+    self->_turnFailureCount   = 0;
+    self->_gameOverCount      = 0;
+    self->_afterGameOverCount = 0;
 }
 
 -(void)setUp
@@ -59,9 +60,9 @@
 -(void)tearDown
 {
     self->_callbacksLog = nil;
-    self->_localizer = nil;
-    self->_field = nil;
-    self->_sut   = nil;
+    self->_localizer    = nil;
+    self->_field        = nil;
+    self->_sut          = nil;
  
     [self cleanupCounters];
     
@@ -151,6 +152,7 @@
     XCTAssertTrue(1 == self->_turnCount);
     XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(0 == self->_gameOverCount);
+    XCTAssertTrue(0 == self->_afterGameOverCount);
     
     id<TTKPlayer> activePlayerAfter = [self->_sut activePlayer];
     XCTAssertTrue(activePlayerAfter != activePlayerBefore);
@@ -193,7 +195,9 @@
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
     XCTAssertTrue(0 == self->_turnCount);
+    XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(0 == self->_gameOverCount);
+    XCTAssertTrue(0 == self->_afterGameOverCount);
     
     
     // WHEN
@@ -209,6 +213,7 @@
     XCTAssertTrue(1 == self->_turnCount);
     XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(0 == self->_gameOverCount);
+    XCTAssertTrue(0 == self->_afterGameOverCount);
     XCTAssertNil([self->_sut gameOverMessage]);
     
     XCTAssertTrue(self->_lastModifiedCell.row == firstTurnPosition.row);
@@ -248,6 +253,7 @@
     XCTAssertTrue(1 == self->_turnCount);
     XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(1 == self->_gameOverCount);
+    XCTAssertTrue(0 == self->_afterGameOverCount);
     
     XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn success by |O| : {0, 0}");
     XCTAssertEqualObjects(self->_callbacksLog[1], @"Game Over");
@@ -295,6 +301,7 @@
     XCTAssertTrue(1 == self->_turnCount);
     XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(1 == self->_gameOverCount);
+    XCTAssertTrue(0 == self->_afterGameOverCount);
     
     XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn success by |X| : {0, 0}");
     XCTAssertEqualObjects(self->_callbacksLog[1], @"Game Over");
@@ -303,6 +310,10 @@
     XCTAssertEqualObjects([self->_sut gameOverMessage], @"A draw");
 }
 
+
+// - - -
+// - ! -
+// - - -
 -(void)testUserIsNotifiedAboutTurnFailure
 {
     // GIVEN
@@ -335,6 +346,7 @@
     XCTAssertTrue(1 == self->_turnCount);
     XCTAssertTrue(1 == self->_turnFailureCount);
     XCTAssertTrue(0 == self->_gameOverCount);
+    XCTAssertTrue(0 == self->_afterGameOverCount);
     
     
     
@@ -348,6 +360,71 @@
     XCTAssertTrue(2 == [self->_callbacksLog count]);
     XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn success by |X| : {1, 1}");
     XCTAssertEqualObjects(self->_callbacksLog[1], @"Turn failed by |O| : {1, 1}");
+}
+
+
+// x x o
+// o x x
+// x o o
+-(void)testNoTurnNotificationAfterGameOverDraw
+{
+    // GIVEN
+    self->_field = [TTKMatrixFieldModel new];
+    {
+        [self->_field takeField: (struct TTKCellPoint){0, 0} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){0, 1} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){0, 2} byX: NO ];
+        
+        [self->_field takeField: (struct TTKCellPoint){1, 0} byX: NO ];
+        [self->_field takeField: (struct TTKCellPoint){1, 1} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){1, 2} byX: YES];
+        
+        [self->_field takeField: (struct TTKCellPoint){2, 0} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){2, 1} byX: NO ];
+        [self->_field takeField: (struct TTKCellPoint){2, 2} byX: NO ];
+    }
+    
+    self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
+                                              xPlayer: YES
+                                            localizer: self->_localizer];
+    self->_sut.vcDelegate = self;
+    
+    struct TTKCellPoint gameOverTurnPosition = {0, 0};
+    
+    
+    // WHEN
+    {
+        [self->_sut view: self
+            didTapOnCell: gameOverTurnPosition];
+        
+        XCTAssertTrue([self->_field isFieldTakenByX: gameOverTurnPosition]);
+        
+        
+        // TODO : maybe failure should be reported
+        XCTAssertTrue(0 == self->_turnCount);
+        XCTAssertTrue(0 == self->_turnFailureCount);
+        XCTAssertTrue(0 == self->_gameOverCount);
+        XCTAssertTrue(1 == self->_afterGameOverCount);
+        
+        XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn after GameOver by |X| : {0, 0}");
+        XCTAssertEqualObjects([self->_sut gameOverMessage], @"A draw");
+    }
+    
+    // and again
+    {
+        [self->_sut view: self
+            didTapOnCell: gameOverTurnPosition];
+        
+        XCTAssertTrue([self->_field isFieldTakenByX: gameOverTurnPosition]);
+        
+        XCTAssertTrue(0 == self->_turnCount);
+        XCTAssertTrue(0 == self->_turnFailureCount);
+        XCTAssertTrue(0 == self->_gameOverCount);
+        XCTAssertTrue(2 == self->_afterGameOverCount);
+        
+        XCTAssertEqualObjects(self->_callbacksLog[1], @"Turn after GameOver by |X| : {0, 0}");
+        XCTAssertEqualObjects([self->_sut gameOverMessage], @"A draw");
+    }
 }
 
 #pragma mark - TTKGameVMDelegate
@@ -382,6 +459,19 @@ didTapOnPosessedCell:(struct TTKCellPoint)cellPosition
     [self->_callbacksLog addObject: turnDescription];
 }
 
+-(void)viewModel:(id<TTKGameVM>)viewModel
+didTapCellAfterGameOver:(struct TTKCellPoint)cellPosition
+{
+    ++self->_afterGameOverCount;
+    
+    NSString* turnDescription = [self logMessageForEvent: @"Turn after GameOver"
+                                                    cell: cellPosition];
+    
+    [self->_callbacksLog addObject: turnDescription];
+}
+
+
+#pragma mark - Utils
 -(NSString*)logMessageForEvent:(NSString*)eventName
                           cell:(struct TTKCellPoint)cellPosition
 {
@@ -397,4 +487,11 @@ didTapOnPosessedCell:(struct TTKCellPoint)cellPosition
     return turnDescription;
 }
 
+
 @end
+
+
+// - - -
+// - - -
+// - - -
+

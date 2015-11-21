@@ -96,7 +96,9 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     
     if ([self->_fieldModel isGameOver])
     {
-        [strongDelegate viewModelDidDetectGameOver: self];
+        [strongDelegate viewModel: self
+          didTapCellAfterGameOver: cellPosition];
+        
         return;
     }
     else if (![self->_fieldModel isFieldEmpty: cellPosition])

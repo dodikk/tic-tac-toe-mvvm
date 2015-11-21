@@ -32,4 +32,11 @@ didChangeCellState:(struct TTKCellPoint)cellPosition;
 -(void)viewModel:(id<TTKGameVM>)viewModel
 didTapOnPosessedCell:(struct TTKCellPoint)cellPosition;
 
+/**
+ This event should never occur. 
+ Override this method to show an error message.
+ */
+-(void)viewModel:(id<TTKGameVM>)viewModel
+didTapCellAfterGameOver:(struct TTKCellPoint)cellPosition;
+
 @end
