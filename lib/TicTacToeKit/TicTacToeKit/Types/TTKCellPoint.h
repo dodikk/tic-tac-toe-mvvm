@@ -12,8 +12,8 @@
 
 struct TTKCellPoint
 {
-    unsigned char x;
-    unsigned char y;
+    unsigned char row;
+    unsigned char column;
 };
 
 

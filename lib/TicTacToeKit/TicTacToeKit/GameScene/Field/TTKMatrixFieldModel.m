@@ -14,38 +14,30 @@ static const signed char FIELD_O     = -1;
 
 static const size_t FIELD_SIZE = 3;
 
-@interface TTKMatrixFieldModel()
-
--(signed char**)cells;
-
-@end
-
-
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu-folding-constant"
 @implementation TTKMatrixFieldModel
 {
-    signed char _cells[3][3];
+    signed char _cells[FIELD_SIZE][FIELD_SIZE];
 }
+#pragma clang diagnostic pop
 
--(signed char**)cells
-{
-    return (signed char**)self->_cells;
-}
 
 #pragma mark - TTKFieldState
 -(BOOL)isFieldEmpty:(struct TTKCellPoint)cellPosition
 {
     // TODO : assert range if needed
-    return (FIELD_EMPTY == self->_cells[cellPosition.x][cellPosition.y]);
+    return (FIELD_EMPTY == self->_cells[cellPosition.row][cellPosition.column]);
 }
 
 -(BOOL)isFieldTakenByX:(struct TTKCellPoint)cellPosition
 {
-    return (FIELD_X == self->_cells[cellPosition.x][cellPosition.y]);
+    return (FIELD_X == self->_cells[cellPosition.row][cellPosition.column]);
 }
 
 -(BOOL)isFieldTakenByY:(struct TTKCellPoint)cellPosition
 {
-    return (FIELD_O == self->_cells[cellPosition.x][cellPosition.y]);
+    return (FIELD_O == self->_cells[cellPosition.row][cellPosition.column]);
 }
 
 -(BOOL)isGameOver
@@ -87,23 +79,23 @@ static const size_t FIELD_SIZE = 3;
     signed char diagonal  = 0;
     signed char rDiagonal = 0;
     
-    for (size_t x = 0; x != FIELD_SIZE; ++x)
+    for (size_t row = 0; row != FIELD_SIZE; ++row)
     {
         // TODO : remove brute force to accumulate values
-        rows[x] = self->_cells[x][0] + self->_cells[x][1] + self->_cells[x][2];
-        if ( FIELD_SIZE == abs(rows[x]) )
+        rows[row] = self->_cells[row][0] + self->_cells[row][1] + self->_cells[row][2];
+        if ( FIELD_SIZE == abs(rows[row]) )
         {
-            return rows[x];
+            return rows[row];
         }
     }
     
-    for (size_t y = 0; y != FIELD_SIZE; ++y)
+    for (size_t column = 0; column != FIELD_SIZE; ++column)
     {
         // TODO : remove brute force to accumulate values
-        columns[y] = self->_cells[0][y] + self->_cells[1][y] + self->_cells[2][y];
-        if ( FIELD_SIZE == abs(columns[y]) )
+        columns[column] = self->_cells[0][column] + self->_cells[1][column] + self->_cells[2][column];
+        if ( FIELD_SIZE == abs(columns[column]) )
         {
-            return columns[y];
+            return columns[column];
         }
     }
     
@@ -150,7 +142,7 @@ static const size_t FIELD_SIZE = 3;
     NSParameterAssert([self isFieldEmpty: cellPosition]);
     
     signed char value = isX_Or_O ? FIELD_X : FIELD_O;
-    self->_cells[cellPosition.x][cellPosition.y] = value;
+    self->_cells[cellPosition.row][cellPosition.column] = value;
 }
 
 @end
