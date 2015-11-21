@@ -12,4 +12,6 @@
 #import <TicTacToeKit/GameScene/TTKGameVM.h>
 #import <TicTacToeKit/GameScene/TTKGameVMDelegate.h>
 
+#import <TicTacToeKit/GameScene/Field/TTKFieldState.h>
+#import <TicTacToeKit/GameScene/Player/TTKPlayer.h>
 
