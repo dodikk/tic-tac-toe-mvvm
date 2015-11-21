@@ -149,6 +149,8 @@
     // TODO : introduce XCTest expectations
     // in case the code becomes asynchronous
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(0 == self->_turnFailureCount);
+    XCTAssertTrue(0 == self->_gameOverCount);
     
     id<TTKPlayer> activePlayerAfter = [self->_sut activePlayer];
     XCTAssertTrue(activePlayerAfter != activePlayerBefore);
@@ -205,6 +207,7 @@
     // TODO : introduce XCTest expectations
     // in case the code becomes asynchronous
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(0 == self->_gameOverCount);
     XCTAssertNil([self->_sut gameOverMessage]);
     
@@ -243,6 +246,7 @@
     XCTAssertTrue([self->_field isFieldTakenByY: gameOverTurnPosition]);
     
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(1 == self->_gameOverCount);
     
     XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn success by |O| : {0, 0}");
@@ -289,6 +293,7 @@
     XCTAssertTrue([self->_field isFieldTakenByX: gameOverTurnPosition]);
     
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(1 == self->_gameOverCount);
     
     XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn success by |X| : {0, 0}");
@@ -296,6 +301,53 @@
     
     
     XCTAssertEqualObjects([self->_sut gameOverMessage], @"A draw");
+}
+
+-(void)testUserIsNotifiedAboutTurnFailure
+{
+    // GIVEN
+    self->_field = [TTKMatrixFieldModel new];
+    self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
+                                              xPlayer: YES
+                                            localizer: self->_localizer];
+    self->_sut.vcDelegate = self;
+    
+    struct TTKCellPoint firstTurnPosition = {1, 1};
+    XCTAssertTrue(0 == self->_turnCount);
+    
+    
+    
+    // WHEN
+    [self->_sut view: self
+        didTapOnCell: firstTurnPosition];
+    XCTAssertTrue(1 == self->_turnCount);
+    
+    
+    id<TTKPlayer> activePlayerBefore = [self->_sut activePlayer];
+    [self->_sut view: self
+        didTapOnCell: firstTurnPosition];
+    
+    
+    // THEN
+    //
+    // TODO : introduce XCTest expectations
+    // in case the code becomes asynchronous
+    XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(1 == self->_turnFailureCount);
+    XCTAssertTrue(0 == self->_gameOverCount);
+    
+    
+    
+    id<TTKPlayer> activePlayerAfter = [self->_sut activePlayer];
+    XCTAssertTrue(activePlayerAfter == activePlayerBefore);
+    
+    
+    XCTAssertTrue([activePlayerBefore isPlayerO]);
+    XCTAssertTrue([activePlayerAfter  isPlayerO]);
+    
+    XCTAssertTrue(2 == [self->_callbacksLog count]);
+    XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn success by |X| : {1, 1}");
+    XCTAssertEqualObjects(self->_callbacksLog[1], @"Turn failed by |O| : {1, 1}");
 }
 
 #pragma mark - TTKGameVMDelegate
@@ -322,6 +374,8 @@ didChangeCellState:(struct TTKCellPoint)cellPosition
 -(void)viewModel:(id<TTKGameVM>)viewModel
 didTapOnPosessedCell:(struct TTKCellPoint)cellPosition
 {
+    ++self->_turnFailureCount;
+    
     NSString* turnDescription = [self logMessageForEvent: @"Turn failed"
                                                     cell: cellPosition];
     
@@ -331,8 +385,6 @@ didTapOnPosessedCell:(struct TTKCellPoint)cellPosition
 -(NSString*)logMessageForEvent:(NSString*)eventName
                           cell:(struct TTKCellPoint)cellPosition
 {
-    ++self->_turnFailureCount;
-    
     NSString* playerId = [[self->_sut activePlayer] isPlayerX] ? @"X" : @"O";
     
     NSString* turnDescription =
