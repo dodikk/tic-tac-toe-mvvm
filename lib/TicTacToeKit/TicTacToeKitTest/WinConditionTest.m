@@ -166,4 +166,48 @@
     XCTAssertFalse([self->_field isWinnerPlayerX]);
 }
 
+
+// x x -
+// 0 x -
+// 0 0 x
+-(void)testXWinsByCompletingDiagonal
+{
+    // GIVEN
+    [self->_field takeField: (struct TTKCellPoint){0, 0} byX: YES];
+    [self->_field takeField: (struct TTKCellPoint){1, 1} byX: YES];
+    [self->_field takeField: (struct TTKCellPoint){2, 2} byX: YES];
+    
+    
+    [self->_field takeField: (struct TTKCellPoint){0, 1} byX: YES];
+    [self->_field takeField: (struct TTKCellPoint){1, 0} byX: NO];
+    [self->_field takeField: (struct TTKCellPoint){2, 0} byX: NO];
+    [self->_field takeField: (struct TTKCellPoint){2, 1} byX: NO];
+    
+    
+    // THEN
+    XCTAssertTrue([self->_field isGameOver]);
+    XCTAssertFalse([self->_field isDraw]);
+    XCTAssertTrue([self->_field isWinnerPlayerX]);
+}
+
+// x x o
+// - o -
+// o - -
+-(void)testOWinsByCompletingReverseDiagonal
+{
+    // GIVEN
+    [self->_field takeField: (struct TTKCellPoint){0, 2} byX: NO];
+    [self->_field takeField: (struct TTKCellPoint){1, 1} byX: NO];
+    [self->_field takeField: (struct TTKCellPoint){2, 0} byX: NO];
+    
+    [self->_field takeField: (struct TTKCellPoint){0, 0} byX: YES];
+    [self->_field takeField: (struct TTKCellPoint){0, 1} byX: YES];
+    
+    
+    // THEN
+    XCTAssertTrue([self->_field isGameOver]);
+    XCTAssertFalse([self->_field isDraw]);
+    XCTAssertFalse([self->_field isWinnerPlayerX]);
+}
+
 @end
