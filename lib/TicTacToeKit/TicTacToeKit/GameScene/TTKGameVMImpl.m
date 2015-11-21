@@ -12,12 +12,15 @@
 #import "TTKPlayerPOD.h"
 #import "TTKFieldState.h"
 #import "TTKMutableFieldState.h"
+#import "TTKGameOverLocalizer.h"
 
 
 @implementation TTKGameVMImpl
 {
     id<TTKFieldState, TTKMutableFieldState> _fieldModel;
+    id<TTKGameOverLocalizer> _localizer;
     BOOL _isFirstTurnForPlayerX;
+    
     
     NSUInteger _indexOfActivePlayer;
 }
@@ -33,7 +36,11 @@
 
 -(instancetype)initWithField:(id<TTKFieldState, TTKMutableFieldState>)fieldModel
                      xPlayer:(BOOL)isPlayerXSelectedFromMenu
+                   localizer:(id<TTKGameOverLocalizer>)localizer
 {
+    NSParameterAssert(nil != fieldModel);
+    NSParameterAssert(nil != localizer);
+    
     self = [super init];
     if (nil == self)
     {
@@ -41,9 +48,9 @@
     }
     
     self->_fieldModel = fieldModel;
+    self->_localizer = localizer;
     self->_isFirstTurnForPlayerX = isPlayerXSelectedFromMenu;
     [self setupPlayers];
-    
     
     return self;
 }
@@ -157,15 +164,15 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     }
     else if ([self->_fieldModel isDraw])
     {
-        return @"A draw";
+        return [self->_localizer drawMessage];
     }
     else if ([self->_fieldModel isWinnerPlayerX])
     {
-        return @"X wins";
+        return [self->_localizer xPlayerWinsMessage];
     }
     else
     {
-        return @"O wins";
+        return [self->_localizer oPlayerWinsMessage];
     }
 }
 

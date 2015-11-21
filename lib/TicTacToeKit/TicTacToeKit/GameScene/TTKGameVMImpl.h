@@ -11,6 +11,8 @@
 
 @protocol TTKFieldState;
 @protocol TTKMutableFieldState;
+@protocol TTKGameOverLocalizer;
+
 
 @interface TTKGameVMImpl : NSObject<TTKGameVM>
 
@@ -19,6 +21,7 @@
 
 -(instancetype)initWithField:(id<TTKFieldState, TTKMutableFieldState>)fieldModel
                      xPlayer:(BOOL)isPlayerXSelectedFromMenu
+                   localizer:(id<TTKGameOverLocalizer>)localizer
 NS_DESIGNATED_INITIALIZER
 NS_REQUIRES_SUPER
 __attribute__((nonnull));

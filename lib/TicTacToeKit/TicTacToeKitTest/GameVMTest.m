@@ -11,7 +11,7 @@
 #import <TicTacToeKit/TicTacToeKit.h>
 #import "TTKGameVMImpl.h"
 #import "TTKMatrixFieldModel.h"
-
+#import "TTKGameOverLocalizerStub.h"
 
 @interface GameVMTest : XCTestCase<TTKGameVMDelegate>
 @end
@@ -20,6 +20,7 @@
 {
     TTKGameVMImpl* _sut;
     TTKMatrixFieldModel* _field;
+    TTKGameOverLocalizerStub* _localizer;
     
     NSMutableArray* _callbacksLog;
     
@@ -43,6 +44,8 @@
 {
     [super setUp];
 
+    self->_localizer = [TTKGameOverLocalizerStub new];
+    
     self->_callbacksLog = [NSMutableArray new];
     [self cleanupCounters];
     
@@ -56,6 +59,7 @@
 -(void)tearDown
 {
     self->_callbacksLog = nil;
+    self->_localizer = nil;
     self->_field = nil;
     self->_sut   = nil;
  
@@ -71,7 +75,8 @@
 {
     TTKMatrixFieldModel* field = [TTKMatrixFieldModel new];
     TTKGameVMImpl* sut = [[TTKGameVMImpl alloc] initWithField: field
-                                                      xPlayer: YES];
+                                                      xPlayer: YES
+                                                    localizer: self->_localizer];
     
     
     id<TTKPlayer> activePlayer = [sut activePlayer];
@@ -96,7 +101,8 @@
 {
     TTKMatrixFieldModel* field = [TTKMatrixFieldModel new];
     TTKGameVMImpl* sut = [[TTKGameVMImpl alloc] initWithField: field
-                                                      xPlayer: NO];
+                                                      xPlayer: NO
+                                                    localizer: self->_localizer];
     
     id<TTKPlayer> activePlayer = [sut activePlayer];
     {
@@ -122,7 +128,8 @@
     // GIVEN
     self->_field = [TTKMatrixFieldModel new];
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
-                                              xPlayer: YES];
+                                              xPlayer: YES
+                                            localizer: self->_localizer];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
@@ -156,7 +163,8 @@
     // GIVEN
     self->_field = [TTKMatrixFieldModel new];
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
-                                              xPlayer: YES];
+                                              xPlayer: YES
+                                            localizer: self->_localizer];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
@@ -177,7 +185,8 @@
     // GIVEN
     self->_field = [TTKMatrixFieldModel new];
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
-                                              xPlayer: YES];
+                                              xPlayer: YES
+                                            localizer: self->_localizer];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
@@ -221,7 +230,8 @@
     }
     
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
-                                              xPlayer: NO];
+                                              xPlayer: NO
+                                            localizer: self->_localizer];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint gameOverTurnPosition = {0, 0};
