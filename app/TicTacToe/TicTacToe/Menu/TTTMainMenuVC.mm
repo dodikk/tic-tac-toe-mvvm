@@ -8,6 +8,7 @@
 
 #import "TTTMainMenuVC.h"
 
+#import "TTTMainMenuLocalizer.h"
 
 // TODO : extract to router class during refactoring
 #import "TTTGameVC.h"
@@ -81,9 +82,10 @@
     // TODO : extract to router class if more destinations come up
     TTTGameVC* gameScreen = objc_member_of_cast<TTTGameVC>(segue.destinationViewController);
     id<TTKFieldState, TTKMutableFieldState> fieldModel = [TTKMatrixFieldModel new];
+    TTTMainMenuLocalizer* localizer = [TTTMainMenuLocalizer new];
     TTKGameVMImpl* viewModel = [[TTKGameVMImpl alloc] initWithField: fieldModel
                                                             xPlayer: isXSelected
-                                                          localizer: nil];
+                                                          localizer: localizer];
     
     gameScreen.viewModel = viewModel;
 }

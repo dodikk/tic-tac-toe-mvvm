@@ -11,6 +11,8 @@
 "MENU_BUTTON_O" = "Start as O";
 
 
-
+"GAME_OVER__PLAYER_X" = "X wins";
+"GAME_OVER__PLAYER_O" = "O wins";
+"GAME_OVER__DRAW" = "A draw";
 
 
