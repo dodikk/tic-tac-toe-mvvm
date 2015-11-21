@@ -27,9 +27,11 @@
 {
     [super setUp];
 
-    self->_field = [TTKMatrixFieldModel new];
-    self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
-                                              xPlayer: YES];
+    // To be initialized in test methods
+    //
+//    self->_field = [TTKMatrixFieldModel new];
+//    self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
+//                                              xPlayer: YES];
 }
 
 -(void)tearDown
@@ -40,6 +42,8 @@
     [super tearDown];
 }
 
+
+#pragma mark - Players Test
 -(void)testPlayerInitializationX
 {
     TTKMatrixFieldModel* field = [TTKMatrixFieldModel new];
@@ -89,7 +93,33 @@
     XCTAssertTrue([sut players][0] == activePlayer);
 }
 
-
+#pragma mark - Turn
+-(void)testActivePlayerIsChangedAfterTurn
+{
+    // GIVEN
+    self->_field = [TTKMatrixFieldModel new];
+    self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
+                                              xPlayer: YES];
+    struct TTKCellPoint firstTurnPosition = {1, 1};
+    
+    id<TTKPlayer> activePlayerBefore = [self->_sut activePlayer];
+    
+    
+    // WHEN
+    [self->_sut view: self
+        didTapOnCell: firstTurnPosition];
+    
+    // THEN
+    //
+    // TODO : introduce XCTest expectations
+    // in case the code becomes asynchronous
+    id<TTKPlayer> activePlayerAfter = [self->_sut activePlayer];
+    XCTAssertTrue(activePlayerAfter != activePlayerBefore);
+    
+    
+    XCTAssertTrue([activePlayerBefore isPlayerX]);
+    XCTAssertTrue([activePlayerAfter  isPlayerO]);
+}
 
 
 #pragma mark - TTKGameVMDelegate
