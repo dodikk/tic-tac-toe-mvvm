@@ -31,7 +31,7 @@
                                         <state key="normal" title="Start as X"/>
                                         <connections>
                                             <action selector="onFirstPlayerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6RR-yt-w3M"/>
-                                            <segue destination="ghz-Ng-KFm" kind="presentation" id="3XQ-3C-Wxa"/>
+                                            <segue destination="ghz-Ng-KFm" kind="presentation" identifier="PlayerOSeg" id="3XQ-3C-Wxa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r96-mF-CUg">
@@ -41,7 +41,7 @@
                                         <state key="normal" title="Start as Y"/>
                                         <connections>
                                             <action selector="secondPlayerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9AT-vl-cy6"/>
-                                            <segue destination="ghz-Ng-KFm" kind="presentation" identifier="PlayerTwoSeg" id="ghj-zk-ena"/>
+                                            <segue destination="ghz-Ng-KFm" kind="presentation" identifier="PlayerXSeg" id="ghj-zk-ena"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -242,6 +242,6 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="ghj-zk-ena"/>
+        <segue reference="3XQ-3C-Wxa"/>
     </inferredMetricsTieBreakers>
 </document>
