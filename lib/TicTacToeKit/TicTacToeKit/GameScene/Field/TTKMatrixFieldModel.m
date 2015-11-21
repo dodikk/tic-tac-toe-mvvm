@@ -14,9 +14,21 @@ static const signed char FIELD_O     = -1;
 
 static const size_t FIELD_SIZE = 3;
 
+@interface TTKMatrixFieldModel()
+
+-(signed char**)cells;
+
+@end
+
+
 @implementation TTKMatrixFieldModel
 {
     signed char _cells[3][3];
+}
+
+-(signed char**)cells
+{
+    return (signed char**)self->_cells;
 }
 
 #pragma mark - TTKFieldState
