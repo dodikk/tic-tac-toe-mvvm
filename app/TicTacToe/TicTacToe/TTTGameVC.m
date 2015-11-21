@@ -66,6 +66,11 @@
 
 
 #pragma mark - TTKGameVMDelegate
+-(void)viewModelDidDetectGameOver:(id<TTKGameVM>)viewModel
+{
+    NSAssert(NO, @"not implemented");
+}
+
 -(void)viewModel:(id<TTKGameVM>)viewModel
 didChangeCellState:(struct TTKCellPoint)cellPosition
 {
@@ -78,6 +83,11 @@ didTapOnPosessedCell:(struct TTKCellPoint)cellPosition
     NSAssert(NO, @"not implemented");
 }
 
+-(void)viewModel:(id<TTKGameVM>)viewModel
+didTapCellAfterGameOver:(struct TTKCellPoint)cellPosition
+{
+    NSAssert(NO, @"not implemented");
+}
 
 #pragma mark - row0
 -(IBAction)onButton00Tapped:(id)sender
