@@ -253,6 +253,51 @@
 }
 
 
+// ! x o
+// o x x
+// x o o
+-(void)testGameOverNotificationForDraw
+{
+    // GIVEN
+    self->_field = [TTKMatrixFieldModel new];
+    {
+    //    [self->_field takeField: (struct TTKCellPoint){0, 0} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){0, 1} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){0, 2} byX: NO ];
+        
+        [self->_field takeField: (struct TTKCellPoint){1, 0} byX: NO ];
+        [self->_field takeField: (struct TTKCellPoint){1, 1} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){1, 2} byX: YES];
+        
+        [self->_field takeField: (struct TTKCellPoint){2, 0} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){2, 1} byX: NO ];
+        [self->_field takeField: (struct TTKCellPoint){2, 2} byX: NO ];
+    }
+    
+    self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
+                                              xPlayer: YES
+                                            localizer: self->_localizer];
+    self->_sut.vcDelegate = self;
+    
+    struct TTKCellPoint gameOverTurnPosition = {0, 0};
+    
+    
+    // WHEN
+    [self->_sut view: self
+        didTapOnCell: gameOverTurnPosition];
+    
+    XCTAssertTrue([self->_field isFieldTakenByX: gameOverTurnPosition]);
+    
+    XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(1 == self->_gameOverCount);
+    
+    XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn success by |X| : {0, 0}");
+    XCTAssertEqualObjects(self->_callbacksLog[1], @"Game Over");
+    
+    
+    XCTAssertEqualObjects([self->_sut gameOverMessage], @"A draw");
+}
+
 #pragma mark - TTKGameVMDelegate
 -(void)viewModelDidDetectGameOver:(id<TTKGameVM>)viewModel
 {
