@@ -53,7 +53,6 @@
 		7E289B701C007DEB004F2BC3 /* TicTacToeKitTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TicTacToeKitTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E289B741C007DEB004F2BC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		7E289B7B1C007EB2004F2BC3 /* WinConditionTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WinConditionTest.m; sourceTree = "<group>"; };
-		7E289B7D1C007F8C004F2BC3 /* TTKMatrixFieldModel+UnitTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "TTKMatrixFieldModel+UnitTest.h"; sourceTree = "<group>"; };
 		7E289B811C0080D2004F2BC3 /* TTKPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKPlayer.h; sourceTree = "<group>"; };
 		7E289B821C009853004F2BC3 /* TTKPlayerPOD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKPlayerPOD.h; sourceTree = "<group>"; };
 		7E289B831C009853004F2BC3 /* TTKPlayerPOD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTKPlayerPOD.m; sourceTree = "<group>"; };
@@ -120,7 +119,6 @@
 				7E289B681BFF86A8004F2BC3 /* TTKMutableFieldState.h */,
 				7E289B691BFF8CB6004F2BC3 /* TTKMatrixFieldModel.h */,
 				7E289B6A1BFF8CB6004F2BC3 /* TTKMatrixFieldModel.m */,
-				7E289B7D1C007F8C004F2BC3 /* TTKMatrixFieldModel+UnitTest.h */,
 			);
 			path = Field;
 			sourceTree = "<group>";
