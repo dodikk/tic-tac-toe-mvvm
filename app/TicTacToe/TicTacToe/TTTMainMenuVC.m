@@ -10,8 +10,9 @@
 
 @interface TTTMainMenuVC ()
 
-@property (nonatomic, weak) IBOutlet UIButton* firstPlayerButton;
+@property (nonatomic, weak) IBOutlet UIButton* firstPlayerButton ;
 @property (nonatomic, weak) IBOutlet UIButton* secondPlayerButton;
+@property (nonatomic, weak) IBOutlet UIView  * buttonsContainer  ;
 
 @end
 
@@ -28,12 +29,16 @@
 
 -(void)setupColours
 {
-    id<TTTMenuTheme> theme = [[TTTColorThemeBuilder currentTheme] menuTheme];
+//    id<TTTMenuTheme> theme = [[TTTColorThemeBuilder currentTheme] menuTheme];
 }
 
 -(void)setupLocalizations
 {
+    [self.firstPlayerButton setTitle: NSLocalizedString(@"MENU_BUTTON_X", nil)
+                            forState: UIControlStateNormal];
     
+    [self.secondPlayerButton setTitle: NSLocalizedString(@"MENU_BUTTON_O", nil)
+                             forState: UIControlStateNormal];
 }
 
 -(void)cleanupStoryboardStubs
@@ -41,6 +46,7 @@
     self.view              .backgroundColor = [UIColor clearColor];
     self.firstPlayerButton .backgroundColor = [UIColor clearColor];
     self.secondPlayerButton.backgroundColor = [UIColor clearColor];
+    self.buttonsContainer.backgroundColor   = [UIColor clearColor];
 }
 
 -(void)didReceiveMemoryWarning

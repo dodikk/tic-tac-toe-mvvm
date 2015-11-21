@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  TicTacToe
+
+  Created by Oleksandr Dodatko on 21/11/2015.
+  Copyright © 2015 dodikk. All rights reserved.
+*/
+
+
+"MENU_BUTTON_X" = "Start as X";
+"MENU_BUTTON_O" = "Start as O";
+
+
+
+
+
