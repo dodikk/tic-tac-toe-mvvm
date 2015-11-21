@@ -8,9 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		7E289B911C00F29F004F2BC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E289B901C00F29F004F2BC3 /* Localizable.strings */; };
+		7E289B991C0137D3004F2BC3 /* TTTMainMenuVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E289B981C0137D3004F2BC3 /* TTTMainMenuVC.mm */; };
 		7EE61EB61BFF6F7A00DE8F47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EB51BFF6F7A00DE8F47 /* main.m */; };
 		7EE61EB91BFF6F7A00DE8F47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EB81BFF6F7A00DE8F47 /* AppDelegate.m */; };
-		7EE61EBC1BFF6F7A00DE8F47 /* TTTMainMenuVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EBB1BFF6F7A00DE8F47 /* TTTMainMenuVC.mm */; };
 		7EE61EBF1BFF6F7A00DE8F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE61EBD1BFF6F7A00DE8F47 /* Main.storyboard */; };
 		7EE61EC11BFF6F7A00DE8F47 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7EE61EC01BFF6F7A00DE8F47 /* Assets.xcassets */; };
 		7EE61EC41BFF6F7A00DE8F47 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE61EC21BFF6F7A00DE8F47 /* LaunchScreen.storyboard */; };
@@ -56,12 +56,12 @@
 /* Begin PBXFileReference section */
 		7E289B901C00F29F004F2BC3 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = TicTacToe/Localizable.strings; sourceTree = "<group>"; };
 		7E289B951C013442004F2BC3 /* ObjcCastFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ObjcCastFunctions.hpp; path = ../../lib/ObjcCastFunctions.hpp; sourceTree = "<group>"; };
+		7E289B971C0137D3004F2BC3 /* TTTMainMenuVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTMainMenuVC.h; sourceTree = "<group>"; };
+		7E289B981C0137D3004F2BC3 /* TTTMainMenuVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TTTMainMenuVC.mm; sourceTree = "<group>"; };
 		7EE61EB11BFF6F7A00DE8F47 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE61EB51BFF6F7A00DE8F47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EE61EB71BFF6F7A00DE8F47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		7EE61EB81BFF6F7A00DE8F47 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		7EE61EBA1BFF6F7A00DE8F47 /* TTTMainMenuVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTTMainMenuVC.h; sourceTree = "<group>"; };
-		7EE61EBB1BFF6F7A00DE8F47 /* TTTMainMenuVC.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = TTTMainMenuVC.mm; sourceTree = "<group>"; };
 		7EE61EBE1BFF6F7A00DE8F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7EE61EC01BFF6F7A00DE8F47 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7EE61EC31BFF6F7A00DE8F47 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -102,6 +102,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E289B961C0137D3004F2BC3 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				7E289B971C0137D3004F2BC3 /* TTTMainMenuVC.h */,
+				7E289B981C0137D3004F2BC3 /* TTTMainMenuVC.mm */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
 		7EE61EA81BFF6F7A00DE8F47 = {
 			isa = PBXGroup;
 			children = (
@@ -128,10 +137,9 @@
 			isa = PBXGroup;
 			children = (
 				7EE61EFD1BFF747600DE8F47 /* ColorTheme */,
+				7E289B961C0137D3004F2BC3 /* Menu */,
 				7EE61EB71BFF6F7A00DE8F47 /* AppDelegate.h */,
 				7EE61EB81BFF6F7A00DE8F47 /* AppDelegate.m */,
-				7EE61EBA1BFF6F7A00DE8F47 /* TTTMainMenuVC.h */,
-				7EE61EBB1BFF6F7A00DE8F47 /* TTTMainMenuVC.mm */,
 				7EE61EF71BFF723F00DE8F47 /* TTTGameVC.h */,
 				7EE61EF81BFF723F00DE8F47 /* TTTGameVC.m */,
 				7EE61EBD1BFF6F7A00DE8F47 /* Main.storyboard */,
@@ -309,13 +317,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7EE61EBC1BFF6F7A00DE8F47 /* TTTMainMenuVC.mm in Sources */,
 				7EE61EF91BFF723F00DE8F47 /* TTTGameVC.m in Sources */,
 				7EE61F081BFF756700DE8F47 /* TTTMenuThemePOD.m in Sources */,
 				7EE61F021BFF74C100DE8F47 /* TTTColorThemePOD.m in Sources */,
 				7EE61EB91BFF6F7A00DE8F47 /* AppDelegate.m in Sources */,
 				7EE61F051BFF74F900DE8F47 /* TTTColorThemeBuilder.m in Sources */,
 				7EE61EB61BFF6F7A00DE8F47 /* main.m in Sources */,
+				7E289B991C0137D3004F2BC3 /* TTTMainMenuVC.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
