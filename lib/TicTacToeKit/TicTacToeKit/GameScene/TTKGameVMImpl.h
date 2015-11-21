@@ -25,6 +25,7 @@ __attribute__((nonnull));
 
 
 @property (nonatomic, readonly) NSArray* players;
+@property (nonatomic, readonly) NSString* gameOverMessage;
 
 @property (nonatomic)       id<TTKPlayer>         activePlayer;
 @property (nonatomic, weak) id<TTKGameVMDelegate> vcDelegate  ;

@@ -22,6 +22,8 @@ didTapOnCell:(struct TTKCellPoint)cellPosition;
 
 -(id<TTKPlayer>)activePlayer;
 
+-(NSString*)gameOverMessage;
+
 /**
  Typically a weak property
  */

@@ -24,6 +24,7 @@
 
 
 @dynamic activePlayer;
+@dynamic gameOverMessage;
 
 -(id<TTKPlayer>)activePlayer
 {
@@ -143,6 +144,28 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     else
     {
         NSAssert(NO, @"[TTKGameVMImpl] Player index exceeded");
+    }
+}
+
+
+// TODO : localize me
+-(NSString*)gameOverMessage
+{
+    if (![self->_fieldModel isGameOver])
+    {
+        return nil;
+    }
+    else if ([self->_fieldModel isDraw])
+    {
+        return @"A draw";
+    }
+    else if ([self->_fieldModel isWinnerPlayerX])
+    {
+        return @"X wins";
+    }
+    else
+    {
+        return @"O wins";
     }
 }
 
