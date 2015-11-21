@@ -24,6 +24,8 @@ NS_REQUIRES_SUPER
 __attribute__((nonnull));
 
 
+@property (nonatomic, readonly) NSArray* players;
+
 @property (nonatomic)       id<TTKPlayer>         activePlayer;
 @property (nonatomic, weak) id<TTKGameVMDelegate> vcDelegate  ;
 
