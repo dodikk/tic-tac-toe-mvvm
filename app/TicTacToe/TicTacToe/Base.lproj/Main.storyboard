@@ -18,39 +18,64 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="640"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r96-mF-CUg">
-                                <rect key="frame" x="20" y="329" width="440" height="56"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EQ1-YF-dgl">
+                                <rect key="frame" x="0.0" y="223" width="480" height="194"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kmb-v7-yoT">
+                                        <rect key="frame" x="20" y="19" width="440" height="56"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="1" green="0.1176470588" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="vAp-4l-PWs"/>
+                                        </constraints>
+                                        <state key="normal" title="Start as X"/>
+                                        <connections>
+                                            <action selector="onFirstPlayerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6RR-yt-w3M"/>
+                                            <segue destination="ghz-Ng-KFm" kind="presentation" id="3XQ-3C-Wxa"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r96-mF-CUg">
+                                        <rect key="frame" x="20" y="118" width="440" height="56"/>
+                                        <animations/>
+                                        <color key="backgroundColor" red="0.035294117649999998" green="0.64705882349999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <state key="normal" title="Start as Y"/>
+                                        <connections>
+                                            <action selector="secondPlayerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9AT-vl-cy6"/>
+                                            <segue destination="ghz-Ng-KFm" kind="presentation" identifier="PlayerTwoSeg" id="ghj-zk-ena"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
                                 <animations/>
-                                <color key="backgroundColor" red="0.035294117649999998" green="0.64705882349999999" blue="0.81960784310000001" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Start as Y"/>
-                                <connections>
-                                    <action selector="secondPlayerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9AT-vl-cy6"/>
-                                    <segue destination="ghz-Ng-KFm" kind="presentation" identifier="PlayerTwoSeg" id="ghj-zk-ena"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kmb-v7-yoT">
-                                <rect key="frame" x="20" y="224" width="440" height="56"/>
-                                <animations/>
-                                <color key="backgroundColor" red="1" green="0.1176470588" blue="0.16078431369999999" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Start as X"/>
-                                <connections>
-                                    <action selector="onFirstPlayerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6RR-yt-w3M"/>
-                                    <segue destination="ghz-Ng-KFm" kind="presentation" id="3XQ-3C-Wxa"/>
-                                </connections>
-                            </button>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="Kmb-v7-yoT" firstAttribute="leading" secondItem="EQ1-YF-dgl" secondAttribute="leading" constant="20" id="1Ge-4y-rlp"/>
+                                    <constraint firstAttribute="trailing" secondItem="r96-mF-CUg" secondAttribute="trailing" constant="20" id="1Lb-KT-0hO"/>
+                                    <constraint firstAttribute="trailing" secondItem="Kmb-v7-yoT" secondAttribute="trailing" constant="20" id="2Jn-xS-Ior"/>
+                                    <constraint firstItem="r96-mF-CUg" firstAttribute="top" secondItem="Kmb-v7-yoT" secondAttribute="bottom" constant="43" id="6qk-1z-3lF"/>
+                                    <constraint firstItem="r96-mF-CUg" firstAttribute="leading" secondItem="EQ1-YF-dgl" secondAttribute="leading" constant="20" id="KpU-TW-JUd"/>
+                                    <constraint firstItem="r96-mF-CUg" firstAttribute="width" secondItem="Kmb-v7-yoT" secondAttribute="width" id="NhF-zx-Ejq"/>
+                                    <constraint firstItem="r96-mF-CUg" firstAttribute="height" secondItem="Kmb-v7-yoT" secondAttribute="height" id="Os5-c2-S7c"/>
+                                    <constraint firstItem="r96-mF-CUg" firstAttribute="centerX" secondItem="EQ1-YF-dgl" secondAttribute="centerX" id="WFy-gy-rI4"/>
+                                    <constraint firstItem="Kmb-v7-yoT" firstAttribute="top" secondItem="EQ1-YF-dgl" secondAttribute="top" constant="19" id="mzc-80-9kV"/>
+                                    <constraint firstAttribute="bottom" secondItem="r96-mF-CUg" secondAttribute="bottom" constant="20" id="nMY-rA-HbU"/>
+                                    <constraint firstItem="Kmb-v7-yoT" firstAttribute="centerX" secondItem="EQ1-YF-dgl" secondAttribute="centerX" id="xTD-hL-6Of"/>
+                                    <constraint firstAttribute="height" constant="194" id="xcW-Mx-WFG"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailingMargin" secondItem="r96-mF-CUg" secondAttribute="trailing" id="01y-fc-o4i"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="r96-mF-CUg" secondAttribute="leading" id="DjH-3X-bKv"/>
-                            <constraint firstAttribute="leadingMargin" secondItem="Kmb-v7-yoT" secondAttribute="leading" id="IYC-oV-Umz"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Kmb-v7-yoT" secondAttribute="trailing" id="ahR-Sg-Tsh"/>
+                            <constraint firstItem="EQ1-YF-dgl" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="Xcz-9p-oKP"/>
+                            <constraint firstItem="EQ1-YF-dgl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="XtR-I3-JP8"/>
+                            <constraint firstItem="EQ1-YF-dgl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="cyF-qX-SuL"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="EQ1-YF-dgl" secondAttribute="trailing" constant="-20" id="qnk-A2-pUu"/>
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="480" height="640"/>
                     <connections>
+                        <outlet property="buttonsContainer" destination="EQ1-YF-dgl" id="T90-5U-uKw"/>
                         <outlet property="firstPlayerButton" destination="Kmb-v7-yoT" id="shW-ez-wz7"/>
                         <outlet property="secondPlayerButton" destination="r96-mF-CUg" id="XS5-CB-Ps7"/>
                     </connections>
