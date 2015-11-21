@@ -55,6 +55,7 @@
 
 /* Begin PBXFileReference section */
 		7E289B901C00F29F004F2BC3 /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = Localizable.strings; path = TicTacToe/Localizable.strings; sourceTree = "<group>"; };
+		7E289B951C013442004F2BC3 /* ObjcCastFunctions.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; name = ObjcCastFunctions.hpp; path = ../../lib/ObjcCastFunctions.hpp; sourceTree = "<group>"; };
 		7EE61EB11BFF6F7A00DE8F47 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE61EB51BFF6F7A00DE8F47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EE61EB71BFF6F7A00DE8F47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -106,6 +107,7 @@
 			children = (
 				7EE61F091BFF761600DE8F47 /* TicTacToe.pch */,
 				7E289B901C00F29F004F2BC3 /* Localizable.strings */,
+				7E289B951C013442004F2BC3 /* ObjcCastFunctions.hpp */,
 				7EE61EEE1BFF712C00DE8F47 /* TicTacToeKit.xcodeproj */,
 				7EE61EB31BFF6F7A00DE8F47 /* TicTacToe */,
 				7EE61ECD1BFF6F7A00DE8F47 /* TicTacToeTests */,
@@ -416,7 +418,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = ../../lib/TicTacToeKit;
+				HEADER_SEARCH_PATHS = (
+					../../lib,
+					../../lib/TicTacToeKit,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -475,7 +480,10 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				HEADER_SEARCH_PATHS = ../../lib/TicTacToeKit;
+				HEADER_SEARCH_PATHS = (
+					../../lib,
+					../../lib/TicTacToeKit,
+				);
 				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;

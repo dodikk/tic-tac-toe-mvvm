@@ -12,6 +12,7 @@
 
 #ifdef __OBJC__
     #ifdef __cplusplus
+        #import <ObjcCastFunctions.hpp>
     #endif
 
     #import "TTTColorTheme.h"
