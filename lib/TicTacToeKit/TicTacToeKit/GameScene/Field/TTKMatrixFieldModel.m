@@ -8,9 +8,11 @@
 
 #import "TTKMatrixFieldModel.h"
 
-static const signed char FIELD_EMPTY =  0;
-static const signed char FIELD_X     =  1;
-static const signed char FIELD_O     = -1;
+typedef signed char CellState_t;
+
+static const CellState_t FIELD_EMPTY =  0;
+static const CellState_t FIELD_X     =  1;
+static const CellState_t FIELD_O     = -1;
 
 static const size_t FIELD_SIZE = 3;
 
@@ -18,10 +20,27 @@ static const size_t FIELD_SIZE = 3;
 #pragma clang diagnostic ignored "-Wgnu-folding-constant"
 @implementation TTKMatrixFieldModel
 {
-    signed char _cells[FIELD_SIZE][FIELD_SIZE];
+    CellState_t _cells[FIELD_SIZE][FIELD_SIZE];
 }
 #pragma clang diagnostic pop
 
+
+-(instancetype)init
+{
+    self = [super init];
+    [self nullifyCells];
+    
+    return self;
+}
+
+-(void)nullifyCells
+{
+    for (size_t x = 0; x != FIELD_SIZE; ++x)
+        for (size_t y = 0; y != FIELD_SIZE; ++y)
+    {
+        self->_cells[x][y] = 0;
+    }
+}
 
 #pragma mark - TTKFieldState
 -(BOOL)isFieldEmpty:(struct TTKCellPoint)cellPosition
@@ -43,7 +62,7 @@ static const size_t FIELD_SIZE = 3;
 -(BOOL)isGameOver
 {
     // TODO : reduce loops count by extracting "state" ivar (if needed)
-    signed char rawGameResult = [self rawGameResult];
+    CellState_t rawGameResult = [self rawGameResult];
     if (0 != rawGameResult)
     {
         return YES;
@@ -60,24 +79,24 @@ static const size_t FIELD_SIZE = 3;
     }
     
     // TODO : reduce loops count by extracting "state" ivar (if needed)
-    signed char rawGameResult = [self rawGameResult];
+    CellState_t rawGameResult = [self rawGameResult];
     return (0 == rawGameResult);
 }
 
 -(BOOL)isWinnerPlayerX
 {
     // TODO : reduce loops count by extracting "state" ivar (if needed)
-    signed char rawGameResult = [self rawGameResult];
+    CellState_t rawGameResult = [self rawGameResult];
     return (rawGameResult > 0);
 }
 
--(signed char)rawGameResult
+-(CellState_t)rawGameResult
 {
-    signed char rows[3]    = {0};
-    signed char columns[3] = {0};
+    CellState_t rows[3]    = {0};
+    CellState_t columns[3] = {0};
     
-    signed char diagonal  = 0;
-    signed char rDiagonal = 0;
+    CellState_t diagonal  = 0;
+    CellState_t rDiagonal = 0;
     
     for (size_t row = 0; row != FIELD_SIZE; ++row)
     {
@@ -102,7 +121,7 @@ static const size_t FIELD_SIZE = 3;
     
     // TODO : remove brute force to accumulate values
     diagonal  = self->_cells[0][0] + self->_cells[1][1] + self->_cells[2][2];
-    if (FIELD_SIZE == diagonal)
+    if (FIELD_SIZE == abs(diagonal))
     {
         return diagonal;
     }
@@ -110,7 +129,7 @@ static const size_t FIELD_SIZE = 3;
     
     // TODO : remove brute force to accumulate values
     rDiagonal = self->_cells[2][0] + self->_cells[1][1] + self->_cells[0][2];
-    if (FIELD_SIZE == rDiagonal)
+    if (FIELD_SIZE == abs(rDiagonal))
     {
         return rDiagonal;
     }
@@ -141,7 +160,7 @@ static const size_t FIELD_SIZE = 3;
 {
     NSParameterAssert([self isFieldEmpty: cellPosition]);
     
-    signed char value = isX_Or_O ? FIELD_X : FIELD_O;
+    CellState_t value = isX_Or_O ? FIELD_X : FIELD_O;
     self->_cells[cellPosition.row][cellPosition.column] = value;
 }
 
