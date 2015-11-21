@@ -46,16 +46,37 @@
     self.view              .backgroundColor = [UIColor clearColor];
     self.firstPlayerButton .backgroundColor = [UIColor clearColor];
     self.secondPlayerButton.backgroundColor = [UIColor clearColor];
-    self.buttonsContainer.backgroundColor   = [UIColor clearColor];
+    self.buttonsContainer  .backgroundColor = [UIColor clearColor];
 }
 
--(void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 
 #pragma mark - actions
+-(void)prepareForSegue:(UIStoryboardSegue*)segue
+                sender:(id)sender
+{
+    BOOL isXSelected = NO;
+    
+    NSString* segueName = segue.identifier;
+    if ([segueName isEqualToString: @"PlayerXSeg"])
+    {
+        isXSelected = YES;
+    }
+    else if ([segueName isEqualToString: @"PlayerOSeg"])
+    {
+        isXSelected = NO;
+    }
+    else
+    {
+        NSAssert(NO, @"Unexpected segue");
+        return;
+    }
+    
+    
+    // TODO : extract to router class if more destinations come up
+
+    
+}
+
 -(IBAction)onFirstPlayerButtonTapped:(id)sender
 {
     NSAssert(NO, @"not implemented");
