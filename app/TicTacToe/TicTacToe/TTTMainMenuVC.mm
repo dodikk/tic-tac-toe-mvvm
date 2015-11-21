@@ -8,6 +8,12 @@
 
 #import "TTTMainMenuVC.h"
 
+
+// TODO : extract to router class during refactoring
+#import "TTTGameVC.h"
+#import <TicTacToeKit/GameScene/Field/TTKMatrixFieldModel.h>
+#import <TicTacToeKit/GameScene/TTKGameVMImpl.h>
+
 @interface TTTMainMenuVC ()
 
 @property (nonatomic, weak) IBOutlet UIButton* firstPlayerButton ;
@@ -73,8 +79,13 @@
     
     
     // TODO : extract to router class if more destinations come up
-
+    TTTGameVC* gameScreen = objc_member_of_cast<TTTGameVC>(segue.destinationViewController);
+    id<TTKFieldState, TTKMutableFieldState> fieldModel = [TTKMatrixFieldModel new];
+    TTKGameVMImpl* viewModel = [[TTKGameVMImpl alloc] initWithField: fieldModel
+                                                            xPlayer: isXSelected
+                                                          localizer: nil];
     
+    gameScreen.viewModel = viewModel;
 }
 
 -(IBAction)onFirstPlayerButtonTapped:(id)sender
