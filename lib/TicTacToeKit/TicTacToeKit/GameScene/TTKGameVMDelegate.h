@@ -13,11 +13,22 @@
 
 @protocol TTKGameVMDelegate <NSObject>
 
+/**
+ Invoked when the game engine detects the win or loss for one of the players.
+ [TTKGameVMDelegate viewModel:didChangeCellState:] must be invoked first.
+ */
 -(void)viewModelDidDetectGameOver:(id<TTKGameVM>)viewModel;
 
+/**
+ The corresponding cell has already been taken.
+ Active player has not been changed yet.
+ */
 -(void)viewModel:(id<TTKGameVM>)viewModel
 didChangeCellState:(struct TTKCellPoint)cellPosition;
 
+/**
+ The turn has failed. No turn transfer will occur.
+ */
 -(void)viewModel:(id<TTKGameVM>)viewModel
 didTapOnPosessedCell:(struct TTKCellPoint)cellPosition;
 
