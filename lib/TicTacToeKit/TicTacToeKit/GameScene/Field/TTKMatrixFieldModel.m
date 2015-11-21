@@ -38,6 +38,7 @@ static const size_t FIELD_SIZE = 3;
 
 -(BOOL)isGameOver
 {
+    // TODO : reduce loops count by extracting "state" ivar (if needed)
     signed char rawGameResult = [self rawGameResult];
     if (0 != rawGameResult)
     {
@@ -54,12 +55,14 @@ static const size_t FIELD_SIZE = 3;
         return NO;
     }
     
+    // TODO : reduce loops count by extracting "state" ivar (if needed)
     signed char rawGameResult = [self rawGameResult];
     return (0 == rawGameResult);
 }
 
 -(BOOL)isWinnerPlayerX
 {
+    // TODO : reduce loops count by extracting "state" ivar (if needed)
     signed char rawGameResult = [self rawGameResult];
     return (rawGameResult > 0);
 }
@@ -84,6 +87,7 @@ static const size_t FIELD_SIZE = 3;
     
     for (size_t y = 0; y != FIELD_SIZE; ++y)
     {
+        // TODO : remove brute force to accumulate values
         columns[y] = self->_cells[0][y] + self->_cells[1][y] + self->_cells[2][y];
         if ( FIELD_SIZE == abs(columns[y]) )
         {
@@ -92,6 +96,7 @@ static const size_t FIELD_SIZE = 3;
     }
     
     
+    // TODO : remove brute force to accumulate values
     diagonal  = self->_cells[0][0] + self->_cells[1][1] + self->_cells[2][2];
     if (FIELD_SIZE == diagonal)
     {
@@ -99,6 +104,7 @@ static const size_t FIELD_SIZE = 3;
     }
     
     
+    // TODO : remove brute force to accumulate values
     rDiagonal = self->_cells[2][0] + self->_cells[1][1] + self->_cells[0][2];
     if (FIELD_SIZE == rDiagonal)
     {
