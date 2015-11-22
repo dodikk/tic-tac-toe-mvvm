@@ -99,6 +99,8 @@
     // TODO : check image
     XCTAssertTrue(2 == [[sut players] count]);
     XCTAssertTrue([sut players][0] == activePlayer);
+    
+    XCTAssertEqualObjects(@"Turn of player X", sut.turnIndicatorMessage);
 }
 
 
@@ -126,6 +128,8 @@
     // TODO : check image
     XCTAssertTrue(2 == [[sut players] count]);
     XCTAssertTrue([sut players][0] == activePlayer);
+    
+    XCTAssertEqualObjects(@"Turn of player O", sut.turnIndicatorMessage);
 }
 
 #pragma mark - Turn
@@ -143,6 +147,7 @@
     
     id<TTKPlayer> activePlayerBefore = [self->_sut activePlayer];
     XCTAssertTrue(0 == self->_turnCount);
+    XCTAssertEqualObjects(@"Turn of player X", self->_sut.turnIndicatorMessage);
     
     
     // WHEN
@@ -166,6 +171,8 @@
     
     XCTAssertTrue([activePlayerBefore isPlayerX]);
     XCTAssertTrue([activePlayerAfter  isPlayerO]);
+    
+    XCTAssertEqualObjects(@"Turn of player O", self->_sut.turnIndicatorMessage);
 }
 
 -(void)testFieldIsTakenByActivePlayer
@@ -269,6 +276,7 @@
     
     
     XCTAssertEqualObjects([self->_sut gameOverMessage], @"O wins");
+    XCTAssertEqualObjects(@"O wins", self->_sut.turnIndicatorMessage);
 }
 
 
@@ -318,6 +326,7 @@
     
     
     XCTAssertEqualObjects([self->_sut gameOverMessage], @"A draw");
+    XCTAssertEqualObjects(@"A draw", self->_sut.turnIndicatorMessage);
 }
 
 
@@ -371,6 +380,8 @@
     XCTAssertTrue(2 == [self->_callbacksLog count]);
     XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn success by |X| : {1, 1}");
     XCTAssertEqualObjects(self->_callbacksLog[1], @"Turn failed by |O| : {1, 1}");
+    
+    XCTAssertEqualObjects(@"Turn of player X", self->_sut.turnIndicatorMessage);
 }
 
 
@@ -420,6 +431,8 @@
         
         XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn after GameOver by |X| : {0, 0}");
         XCTAssertEqualObjects([self->_sut gameOverMessage], @"A draw");
+        
+        XCTAssertEqualObjects(@"A draw", self->_sut.turnIndicatorMessage);
     }
     
     // and again
@@ -436,6 +449,8 @@
         
         XCTAssertEqualObjects(self->_callbacksLog[1], @"Turn after GameOver by |X| : {0, 0}");
         XCTAssertEqualObjects([self->_sut gameOverMessage], @"A draw");
+        
+        XCTAssertEqualObjects(@"A draw", self->_sut.turnIndicatorMessage);
     }
 }
 
