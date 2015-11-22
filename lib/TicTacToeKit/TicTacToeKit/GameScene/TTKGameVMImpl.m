@@ -206,6 +206,11 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
 
 -(NSString*)turnIndicatorMessage
 {
+    if ([self->_fieldModel isGameOver])
+    {
+        return self.gameOverMessage;
+    }
+    
     return @"Turn unknown : Not implemented";
 }
 
