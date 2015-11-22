@@ -87,7 +87,10 @@
     }
     else
     {
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
         NSAssert(NO, @"Unexpected segue");
+#pragma clang diagnostic pop
         return;
     }
     

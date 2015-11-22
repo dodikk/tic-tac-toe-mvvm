@@ -160,7 +160,10 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     }
     else
     {
+        #pragma clang diagnostic push
+        #pragma clang diagnostic ignored "-Wgnu-zero-variadic-macro-arguments"
         NSAssert(NO, @"[TTKGameVMImpl] Player index exceeded");
+        #pragma clang diagnostic pop
     }
 }
 
