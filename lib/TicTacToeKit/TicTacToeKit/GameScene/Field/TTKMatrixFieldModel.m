@@ -100,8 +100,16 @@ static const size_t FIELD_SIZE = 3;
     
     for (size_t row = 0; row != FIELD_SIZE; ++row)
     {
-        // TODO : remove brute force to accumulate values
-        rows[row] = self->_cells[row][0] + self->_cells[row][1] + self->_cells[row][2];
+//        rows[row] =
+//            self->_cells[row][0] +
+//            self->_cells[row][1] +
+//            self->_cells[row][2];
+        for (size_t column = 0; column != FIELD_SIZE; ++column)
+        {
+            rows[row] += self->_cells[row][column];
+        }
+        
+
         if ( FIELD_SIZE == abs(rows[row]) )
         {
             return rows[row];
@@ -110,25 +118,46 @@ static const size_t FIELD_SIZE = 3;
     
     for (size_t column = 0; column != FIELD_SIZE; ++column)
     {
-        // TODO : remove brute force to accumulate values
-        columns[column] = self->_cells[0][column] + self->_cells[1][column] + self->_cells[2][column];
+//        columns[column] =
+//            self->_cells[0][column] +
+//            self->_cells[1][column] +
+//            self->_cells[2][column];
+        for (size_t row = 0; row != FIELD_SIZE; ++row)
+        {
+            columns[column] += self->_cells[row][column];
+        }
+        
+        
         if ( FIELD_SIZE == abs(columns[column]) )
         {
             return columns[column];
         }
     }
-    
-    
-    // TODO : remove brute force to accumulate values
-    diagonal  = self->_cells[0][0] + self->_cells[1][1] + self->_cells[2][2];
+
+
+//    diagonal  =
+//        self->_cells[0][0] +
+//        self->_cells[1][1] +
+//        self->_cells[2][2];
+    for (size_t diagonalIndex = 0; diagonalIndex != FIELD_SIZE; ++diagonalIndex)
+    {
+        diagonal += self->_cells[diagonalIndex][diagonalIndex];
+    }
     if (FIELD_SIZE == abs(diagonal))
     {
         return diagonal;
     }
     
     
-    // TODO : remove brute force to accumulate values
-    rDiagonal = self->_cells[2][0] + self->_cells[1][1] + self->_cells[0][2];
+//    rDiagonal =
+//        self->_cells[2][0] +
+//        self->_cells[1][1] +
+//        self->_cells[0][2];
+    for (size_t diagonalIndex = 0; diagonalIndex != FIELD_SIZE; ++diagonalIndex)
+    {
+        rDiagonal += self->_cells[FIELD_SIZE - diagonalIndex - 1][diagonalIndex];
+    }
+    
     if (FIELD_SIZE == abs(rDiagonal))
     {
         return rDiagonal;
