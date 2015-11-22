@@ -10,14 +10,6 @@
 
 @interface TTTGameVC ()
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftLineOffset;
-
-// TODO : rename later
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightButtonOffset2;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *upperLineOffset;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLineOffset;
-
-
 @property (weak, nonatomic) IBOutlet UIButton* cell00;
 @property (weak, nonatomic) IBOutlet UIButton* cell01;
 @property (weak, nonatomic) IBOutlet UIButton* cell02;
@@ -51,7 +43,7 @@
     [super viewDidLoad];
     
     [self setupButtonGrid];
-//    [self setupEqualLineSizeConstraints];
+    [self cleanupStoryboardStubs];
 }
 
 -(void)setupButtonGrid
@@ -77,15 +69,10 @@
     }
 }
 
--(void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
-
 -(void)navigateToMainMenu
 {
-    // IDLE
+    [self dismissViewControllerAnimated: YES
+                             completion: nil];
 }
 
 
@@ -206,6 +193,7 @@ didTapCellAfterGameOver:(struct TTKCellPoint)cellPosition
             didTapOnCell: cellPosition];
 }
 
+#pragma mark - row2
 -(IBAction)onButton20Tapped:(id)sender
 {
     static const struct TTKCellPoint cellPosition = {2, 0};
