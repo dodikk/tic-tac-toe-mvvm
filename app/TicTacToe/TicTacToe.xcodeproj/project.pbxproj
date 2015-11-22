@@ -61,6 +61,7 @@
 		7E289B981C0137D3004F2BC3 /* TTTMainMenuVC.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = TTTMainMenuVC.mm; sourceTree = "<group>"; };
 		7E289B9A1C013805004F2BC3 /* TTTMainMenuLocalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTMainMenuLocalizer.h; sourceTree = "<group>"; };
 		7E289B9B1C013805004F2BC3 /* TTTMainMenuLocalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTMainMenuLocalizer.m; sourceTree = "<group>"; };
+		7E289B9D1C013BE7004F2BC3 /* UIKitTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitTypes.h; sourceTree = "<group>"; };
 		7EE61EB11BFF6F7A00DE8F47 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE61EB51BFF6F7A00DE8F47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EE61EB71BFF6F7A00DE8F47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -152,6 +153,7 @@
 				7EE61EC21BFF6F7A00DE8F47 /* LaunchScreen.storyboard */,
 				7EE61EC51BFF6F7A00DE8F47 /* Info.plist */,
 				7EE61EB41BFF6F7A00DE8F47 /* Supporting Files */,
+				7E289B9D1C013BE7004F2BC3 /* UIKitTypes.h */,
 			);
 			path = TicTacToe;
 			sourceTree = "<group>";

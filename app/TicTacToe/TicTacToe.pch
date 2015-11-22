@@ -21,6 +21,8 @@
 
     #import <TicTacToeKit/TicTacToeKit.h>
 
+    #import "UIKitTypes.h"
+
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 #endif
