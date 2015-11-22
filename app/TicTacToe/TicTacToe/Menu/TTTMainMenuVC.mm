@@ -50,7 +50,7 @@
 
 -(void)cleanupStoryboardStubs
 {
-    self.view              .backgroundColor = [UIColor clearColor];
+    self.view              .backgroundColor = [UIColor whiteColor];
     self.firstPlayerButton .backgroundColor = [UIColor clearColor];
     self.secondPlayerButton.backgroundColor = [UIColor clearColor];
     self.buttonsContainer  .backgroundColor = [UIColor clearColor];
@@ -82,22 +82,25 @@
     // TODO : extract to router class if more destinations come up
     TTTGameVC* gameScreen = objc_member_of_cast<TTTGameVC>(segue.destinationViewController);
     id<TTKFieldState, TTKMutableFieldState> fieldModel = [TTKMatrixFieldModel new];
-    TTTMainMenuLocalizer* localizer = [TTTMainMenuLocalizer new];
+    id<TTKGameOverLocalizer> localizer = [TTTMainMenuLocalizer new];
+    id<TTKCellImageProvider> imageProvider = [[TTTColorThemeBuilder currentTheme] cellTheme];
+    
     TTKGameVMImpl* viewModel = [[TTKGameVMImpl alloc] initWithField: fieldModel
                                                             xPlayer: isXSelected
-                                                          localizer: localizer];
+                                                          localizer: localizer
+                                                      imageProvider: imageProvider];
     
     gameScreen.viewModel = viewModel;
 }
 
 -(IBAction)onFirstPlayerButtonTapped:(id)sender
 {
-    NSAssert(NO, @"not implemented");
+//    NSAssert(NO, @"not implemented");
 }
 
 -(IBAction)secondPlayerButtonTapped:(id)sender
 {
-    NSAssert(NO, @"not implemented");
+//    NSAssert(NO, @"not implemented");
 }
 
 @end
