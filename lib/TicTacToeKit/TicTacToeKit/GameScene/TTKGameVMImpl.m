@@ -13,12 +13,14 @@
 #import "TTKFieldState.h"
 #import "TTKMutableFieldState.h"
 #import "TTKGameOverLocalizer.h"
+#import "TTKCellImageProvider.h"
 
 
 @implementation TTKGameVMImpl
 {
     id<TTKFieldState, TTKMutableFieldState> _fieldModel;
     id<TTKGameOverLocalizer> _localizer;
+    id<TTKCellImageProvider> _imageProvider;
     BOOL _isFirstTurnForPlayerX;
     
     
@@ -37,9 +39,11 @@
 -(instancetype)initWithField:(id<TTKFieldState, TTKMutableFieldState>)fieldModel
                      xPlayer:(BOOL)isPlayerXSelectedFromMenu
                    localizer:(id<TTKGameOverLocalizer>)localizer
+               imageProvider:(id<TTKCellImageProvider>)imageProvider
 {
-    NSParameterAssert(nil != fieldModel);
-    NSParameterAssert(nil != localizer );
+    NSParameterAssert(nil != fieldModel   );
+    NSParameterAssert(nil != localizer    );
+    NSParameterAssert(nil != imageProvider);
     
     self = [super init];
     if (nil == self)
@@ -49,8 +53,12 @@
     
     self->_fieldModel = fieldModel;
     self->_localizer = localizer;
+    self->_imageProvider = imageProvider;
+    
+    
     self->_isFirstTurnForPlayerX = isPlayerXSelectedFromMenu;
     [self setupPlayers];
+    
     
     return self;
 }
@@ -173,6 +181,22 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     else
     {
         return [self->_localizer oPlayerWinsMessage];
+    }
+}
+
+-(UIImage*)imageForCell:(struct TTKCellPoint)cellPosition
+{
+    if ([self->_fieldModel isFieldEmpty: cellPosition])
+    {
+        return [self->_imageProvider imageForEmptyCell];
+    }
+    else if ([self->_fieldModel isFieldTakenByX: cellPosition])
+    {
+        return [self->_imageProvider imageForCellTakenByX];
+    }
+    else
+    {
+        return [self->_imageProvider imageForCellTakenByO];
     }
 }
 

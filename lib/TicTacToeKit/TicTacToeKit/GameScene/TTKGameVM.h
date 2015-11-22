@@ -9,6 +9,8 @@
 #import <Foundation/Foundation.h>
 #import <TicTacToeKit/Types/TTKCellPoint.h>
 
+
+@class UIImage;
 @protocol TTKPlayer;
 @protocol TTKGameVMDelegate;
 
@@ -21,8 +23,8 @@ didTapOnCell:(struct TTKCellPoint)cellPosition;
 
 
 -(id<TTKPlayer>)activePlayer;
-
 -(NSString*)gameOverMessage;
+-(UIImage*)imageForCell:(struct TTKCellPoint)cellPosition;
 
 /**
  Typically a weak property
