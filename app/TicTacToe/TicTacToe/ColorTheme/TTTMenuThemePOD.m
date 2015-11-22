@@ -10,4 +10,14 @@
 
 @implementation TTTMenuThemePOD
 
+-(UIColor*)buttonBackgroundColor
+{
+    return [UIColor clearColor];
+}
+
+-(UIColor*)buttonTextColor
+{
+    return [UIColor blueColor];
+}
+
 @end

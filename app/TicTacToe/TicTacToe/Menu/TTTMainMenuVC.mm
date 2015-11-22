@@ -37,7 +37,19 @@
 
 -(void)setupColours
 {
-//    id<TTTMenuTheme> theme = [[TTTColorThemeBuilder currentTheme] menuTheme];
+    id<TTTMenuTheme> theme = [[TTTColorThemeBuilder currentTheme] menuTheme];
+    {
+        UIColor* buttonBack = [theme buttonBackgroundColor];
+        self.firstPlayerButton .backgroundColor = buttonBack;
+        self.secondPlayerButton.backgroundColor = buttonBack;
+
+        // Keeping default tint color for now
+        //
+        //
+//        UIColor* fontColor = [theme buttonTextColor];
+//        self.firstPlayerButton.tintColor = fontColor;
+//        self.secondPlayerButton.tintColor = fontColor;
+    }
 }
 
 -(void)setupLocalizations

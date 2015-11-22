@@ -8,6 +8,11 @@
 
 #import <Foundation/Foundation.h>
 
+@class UIColor;
+
 @protocol TTTMenuTheme <NSObject>
+
+-(UIColor*)buttonBackgroundColor;
+-(UIColor*)buttonTextColor;
 
 @end
