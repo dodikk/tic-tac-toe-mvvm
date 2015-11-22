@@ -32,6 +32,7 @@
     
     [self cleanupStoryboardStubs];
     [self setupColours];
+    [self setupLocalizations];
 }
 
 -(void)setupColours
