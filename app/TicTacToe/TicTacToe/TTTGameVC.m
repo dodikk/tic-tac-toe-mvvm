@@ -51,7 +51,7 @@
     [super viewDidLoad];
     
     [self setupButtonGrid];
-    [self setupEqualLineSizeConstraints];
+//    [self setupEqualLineSizeConstraints];
 }
 
 -(void)setupButtonGrid
@@ -64,23 +64,23 @@
     ];
 }
 
--(void)setupEqualLineSizeConstraints
-{
-    // TODO : rewrite declaratively
-    
-    static const CGFloat lineWidth = 3.f;
-    
-    CGFloat horizontalOffset = (self.view.frame.size.width - 2.f*lineWidth) / 3.f;
-    
-    CGFloat verticalOffset = (self.view.frame.size.height - 2.f*lineWidth) / 3.f;
-    
-    
-    self.leftLineOffset.constant = horizontalOffset;
-    self.rightButtonOffset2.constant = horizontalOffset;
-    
-    self.upperLineOffset.constant = verticalOffset;
-    self.bottomLineOffset.constant = verticalOffset;
-}
+//-(void)setupEqualLineSizeConstraints
+//{
+//    // TODO : rewrite declaratively
+//    
+//    static const CGFloat lineWidth = 3.f;
+//    
+//    CGFloat horizontalOffset = (self.view.frame.size.width - 2.f*lineWidth) / 3.f;
+//    
+//    CGFloat verticalOffset = (self.view.frame.size.height - 2.f*lineWidth) / 3.f;
+//    
+//    
+//    self.leftLineOffset.constant = horizontalOffset;
+//    self.rightButtonOffset2.constant = horizontalOffset;
+//    
+//    self.upperLineOffset.constant = verticalOffset;
+//    self.bottomLineOffset.constant = verticalOffset;
+//}
 
 -(void)didReceiveMemoryWarning
 {

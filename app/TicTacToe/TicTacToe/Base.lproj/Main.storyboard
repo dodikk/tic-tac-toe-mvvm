@@ -31,7 +31,7 @@
                                         <state key="normal" title="Start as X"/>
                                         <connections>
                                             <action selector="onFirstPlayerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="6RR-yt-w3M"/>
-                                            <segue destination="ghz-Ng-KFm" kind="presentation" identifier="PlayerOSeg" id="3XQ-3C-Wxa"/>
+                                            <segue destination="ghz-Ng-KFm" kind="presentation" identifier="PlayerXSeg" id="3XQ-3C-Wxa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="r96-mF-CUg">
@@ -41,7 +41,7 @@
                                         <state key="normal" title="Start as Y"/>
                                         <connections>
                                             <action selector="secondPlayerButtonTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9AT-vl-cy6"/>
-                                            <segue destination="ghz-Ng-KFm" kind="presentation" identifier="PlayerXSeg" id="ghj-zk-ena"/>
+                                            <segue destination="ghz-Ng-KFm" kind="presentation" identifier="PlayerOSeg" id="ghj-zk-ena"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -96,7 +96,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BP9-57-XiR">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BP9-57-XiR">
                                 <rect key="frame" x="147" y="0.0" width="6" height="600"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -112,7 +112,7 @@
                                     <constraint firstAttribute="width" constant="6" id="UbI-aB-JE9"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QZZ-w7-3IS">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QZZ-w7-3IS">
                                 <rect key="frame" x="0.0" y="158" width="480" height="9"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -120,7 +120,7 @@
                                     <constraint firstAttribute="height" constant="9" id="9u8-3r-faJ"/>
                                 </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9TB-hY-oiC">
+                            <view contentMode="scaleToFill" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9TB-hY-oiC">
                                 <rect key="frame" x="0.0" y="381" width="480" height="9"/>
                                 <animations/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
@@ -128,7 +128,7 @@
                                     <constraint firstAttribute="height" constant="9" id="GVa-V1-hjw"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTo-qa-dkh">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OTo-qa-dkh">
                                 <rect key="frame" x="0.0" y="0.0" width="146" height="158"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
@@ -136,7 +136,7 @@
                                     <action selector="onButton00Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="bqr-GK-d10"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPL-aI-GZr">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPL-aI-GZr">
                                 <rect key="frame" x="154" y="169" width="193" height="214"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
@@ -144,7 +144,7 @@
                                     <action selector="onButton11Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="uNa-t9-jMt"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep6-lW-1p5">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ep6-lW-1p5">
                                 <rect key="frame" x="0.0" y="166" width="146" height="216"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
@@ -152,7 +152,7 @@
                                     <action selector="onButton10Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="181-wB-IBc"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-Uo-t3d">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ESv-Uo-t3d">
                                 <rect key="frame" x="0.0" y="390" width="146" height="210"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
@@ -160,7 +160,7 @@
                                     <action selector="onButton20Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="woV-H2-AQM"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N86-zk-8C8">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N86-zk-8C8">
                                 <rect key="frame" x="361" y="0.0" width="119" height="158"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
@@ -168,7 +168,7 @@
                                     <action selector="onButton02Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="xDy-fY-7gS"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfV-Go-GQN">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WfV-Go-GQN">
                                 <rect key="frame" x="347" y="166" width="133" height="215"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
@@ -177,7 +177,7 @@
                                     <action selector="onButton12Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="eQB-VH-IW6"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN4-HM-oi5">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eN4-HM-oi5">
                                 <rect key="frame" x="154" y="388" width="193" height="212"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
@@ -185,7 +185,7 @@
                                     <action selector="onButton21Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="pFv-Kk-3z3"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0n-ze-uc9">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o0n-ze-uc9">
                                 <rect key="frame" x="347" y="390" width="133" height="210"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
@@ -193,7 +193,7 @@
                                     <action selector="onButton22Tapped:" destination="ghz-Ng-KFm" eventType="touchUpInside" id="4LW-PN-h0n"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQs-qe-hhd">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gQs-qe-hhd">
                                 <rect key="frame" x="154" y="0.0" width="185" height="158"/>
                                 <animations/>
                                 <state key="normal" title="Button"/>
@@ -204,36 +204,19 @@
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="BP9-57-XiR" firstAttribute="leading" secondItem="LhC-tJ-GbT" secondAttribute="leadingMargin" constant="127" id="0rH-hY-79S"/>
-                            <constraint firstItem="ofo-2k-hNz" firstAttribute="top" secondItem="BP9-57-XiR" secondAttribute="bottom" id="1TF-Cc-Doj"/>
-                            <constraint firstItem="ofo-2k-hNz" firstAttribute="top" secondItem="9TB-hY-oiC" secondAttribute="bottom" constant="210" id="Gwe-ac-wtK"/>
-                            <constraint firstItem="BP9-57-XiR" firstAttribute="top" secondItem="d3m-XO-4C6" secondAttribute="bottom" constant="-20" id="KRA-pB-0SU"/>
-                            <constraint firstItem="jQW-zn-2PN" firstAttribute="leading" secondItem="gQs-qe-hhd" secondAttribute="trailing" constant="8" id="M3X-5h-12l"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="jQW-zn-2PN" secondAttribute="trailing" constant="107" id="NSF-Vu-W31"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="N86-zk-8C8" secondAttribute="trailing" constant="-20" id="XTo-D9-qjW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="QZZ-w7-3IS" secondAttribute="trailing" constant="-20" id="Y2O-tU-68B"/>
-                            <constraint firstItem="QZZ-w7-3IS" firstAttribute="leading" secondItem="LhC-tJ-GbT" secondAttribute="leadingMargin" constant="-20" id="aTb-3L-TP4"/>
-                            <constraint firstItem="gQs-qe-hhd" firstAttribute="top" secondItem="d3m-XO-4C6" secondAttribute="bottom" constant="-20" id="e4g-hD-1B2"/>
-                            <constraint firstItem="BP9-57-XiR" firstAttribute="leading" secondItem="OTo-qa-dkh" secondAttribute="trailing" constant="1" id="hOs-Tu-OUF"/>
-                            <constraint firstItem="gQs-qe-hhd" firstAttribute="leading" secondItem="BP9-57-XiR" secondAttribute="trailing" constant="1" id="ibg-Va-iXu"/>
-                            <constraint firstItem="9TB-hY-oiC" firstAttribute="leading" secondItem="LhC-tJ-GbT" secondAttribute="leadingMargin" constant="-20" id="jFv-4Y-Qfz"/>
-                            <constraint firstItem="OTo-qa-dkh" firstAttribute="top" secondItem="d3m-XO-4C6" secondAttribute="bottom" constant="-20" id="lzZ-rW-GAg"/>
-                            <constraint firstItem="OTo-qa-dkh" firstAttribute="leading" secondItem="LhC-tJ-GbT" secondAttribute="leadingMargin" constant="-20" id="mDa-CP-L8U"/>
-                            <constraint firstItem="jQW-zn-2PN" firstAttribute="top" secondItem="d3m-XO-4C6" secondAttribute="bottom" constant="-20" id="smd-5R-ogW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="9TB-hY-oiC" secondAttribute="trailing" constant="-20" id="v8w-kX-Dcs"/>
-                            <constraint firstItem="N86-zk-8C8" firstAttribute="leading" secondItem="jQW-zn-2PN" secondAttribute="trailing" constant="8" id="vRD-ml-PYh"/>
-                            <constraint firstItem="N86-zk-8C8" firstAttribute="top" secondItem="d3m-XO-4C6" secondAttribute="bottom" constant="-20" id="vdd-RF-zAC"/>
-                            <constraint firstItem="QZZ-w7-3IS" firstAttribute="top" secondItem="d3m-XO-4C6" secondAttribute="bottom" constant="138" id="wPB-ou-kDL"/>
-                        </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="480" height="600"/>
                     <connections>
-                        <outlet property="bottomLineOffset" destination="Gwe-ac-wtK" id="gsT-Yr-AKC"/>
-                        <outlet property="leftLineOffset" destination="0rH-hY-79S" id="3dj-tN-qr4"/>
-                        <outlet property="rightButtonOffset2" destination="NSF-Vu-W31" id="iSK-pd-jUm"/>
-                        <outlet property="upperLineOffset" destination="wPB-ou-kDL" id="Yqt-KY-bec"/>
+                        <outlet property="cell00" destination="OTo-qa-dkh" id="yl1-dc-OUg"/>
+                        <outlet property="cell01" destination="gQs-qe-hhd" id="EXg-xv-SkW"/>
+                        <outlet property="cell02" destination="N86-zk-8C8" id="XXt-VZ-4FW"/>
+                        <outlet property="cell10" destination="Ep6-lW-1p5" id="bkW-5A-lij"/>
+                        <outlet property="cell11" destination="QPL-aI-GZr" id="J5k-9j-Kbs"/>
+                        <outlet property="cell12" destination="WfV-Go-GQN" id="Cjx-4r-8uS"/>
+                        <outlet property="cell20" destination="ESv-Uo-t3d" id="eEF-cn-zG2"/>
+                        <outlet property="cell21" destination="eN4-HM-oi5" id="orW-jE-kgM"/>
+                        <outlet property="cell22" destination="o0n-ze-uc9" id="ksg-2d-kcq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="to9-2m-DQR" userLabel="First Responder" sceneMemberID="firstResponder"/>
