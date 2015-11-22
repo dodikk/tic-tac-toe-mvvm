@@ -34,8 +34,9 @@
 
 -(void)viewDidLoad
 {
-    [super viewDidLoad];
+    NSParameterAssert(nil != self.viewModel);
     
+    [super viewDidLoad];
     [self setupEqualLineSizeConstraints];
 }
 
@@ -63,12 +64,31 @@
     // Dispose of any resources that can be recreated.
 }
 
+-(void)navigateToMainMenu
+{
+    // IDLE
+}
 
 
 #pragma mark - TTKGameVMDelegate
 -(void)viewModelDidDetectGameOver:(id<TTKGameVM>)viewModel
 {
-    NSAssert(NO, @"not implemented");
+    __weak TTTGameVC* weakSelf = self;
+    
+    NSString* message = [self.viewModel gameOverMessage];
+    
+    UIAlertControllerButtonHandler onOkTapped = ^void(UIAlertAction *action)
+    {
+        TTTGameVC* strongSelf = weakSelf;
+        [strongSelf navigateToMainMenu];
+    };
+
+    
+    UIAlertController* alert = [TTTAlertHelper gameOverMessage: message
+                                            withButtonCallback: onOkTapped];
+    [self presentViewController: alert
+                       animated: YES
+                     completion: nil];
 }
 
 -(void)viewModel:(id<TTKGameVM>)viewModel
@@ -80,13 +100,37 @@ didChangeCellState:(struct TTKCellPoint)cellPosition
 -(void)viewModel:(id<TTKGameVM>)viewModel
 didTapOnPosessedCell:(struct TTKCellPoint)cellPosition
 {
-    NSAssert(NO, @"not implemented");
+    UIAlertControllerButtonHandler onOkTapped = ^void(UIAlertAction *action)
+    {
+        // IDLE
+    };
+    
+    NSString* message = NSLocalizedString(@"BAD_TURN__POSESSED_FIELD", nil);
+    
+    UIAlertController* alert = [TTTAlertHelper badTurnMessage: message
+                                           withButtonCallback: onOkTapped];
+    
+    [self presentViewController: alert
+                       animated: YES
+                     completion: nil];
 }
 
 -(void)viewModel:(id<TTKGameVM>)viewModel
 didTapCellAfterGameOver:(struct TTKCellPoint)cellPosition
 {
-    NSAssert(NO, @"not implemented");
+    UIAlertControllerButtonHandler onOkTapped = ^void(UIAlertAction *action)
+    {
+        // IDLE
+    };
+    
+    NSString* message = NSLocalizedString(@"BAD_TURN__AFTER_GAME_OVER", nil);
+    
+    UIAlertController* alert = [TTTAlertHelper badTurnMessage: message
+                                           withButtonCallback: onOkTapped];
+    
+    [self presentViewController: alert
+                       animated: YES
+                     completion: nil];
 }
 
 #pragma mark - row0
