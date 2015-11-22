@@ -12,6 +12,7 @@
 #import "TTKGameVMImpl.h"
 #import "TTKMatrixFieldModel.h"
 #import "TTKGameOverLocalizerStub.h"
+#import "TTKNilImageProvider.h"
 
 @interface GameVMTest : XCTestCase<TTKGameVMDelegate>
 @end
@@ -21,6 +22,7 @@
     TTKGameVMImpl* _sut;
     TTKMatrixFieldModel* _field;
     TTKGameOverLocalizerStub* _localizer;
+    TTKNilImageProvider* _imageProvider;
     
     NSMutableArray* _callbacksLog;
     
@@ -46,6 +48,7 @@
     [super setUp];
 
     self->_localizer = [TTKGameOverLocalizerStub new];
+    self->_imageProvider = [TTKNilImageProvider new];
     
     self->_callbacksLog = [NSMutableArray new];
     [self cleanupCounters];
@@ -77,7 +80,8 @@
     TTKMatrixFieldModel* field = [TTKMatrixFieldModel new];
     TTKGameVMImpl* sut = [[TTKGameVMImpl alloc] initWithField: field
                                                       xPlayer: YES
-                                                    localizer: self->_localizer];
+                                                    localizer: self->_localizer
+                                                imageProvider: self->_imageProvider];
     
     
     id<TTKPlayer> activePlayer = [sut activePlayer];
@@ -103,7 +107,8 @@
     TTKMatrixFieldModel* field = [TTKMatrixFieldModel new];
     TTKGameVMImpl* sut = [[TTKGameVMImpl alloc] initWithField: field
                                                       xPlayer: NO
-                                                    localizer: self->_localizer];
+                                                    localizer: self->_localizer
+                                                imageProvider: self->_imageProvider];
     
     id<TTKPlayer> activePlayer = [sut activePlayer];
     {
@@ -130,7 +135,8 @@
     self->_field = [TTKMatrixFieldModel new];
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
                                               xPlayer: YES
-                                            localizer: self->_localizer];
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
@@ -168,7 +174,8 @@
     self->_field = [TTKMatrixFieldModel new];
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
                                               xPlayer: YES
-                                            localizer: self->_localizer];
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
@@ -190,7 +197,8 @@
     self->_field = [TTKMatrixFieldModel new];
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
                                               xPlayer: YES
-                                            localizer: self->_localizer];
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
@@ -239,7 +247,8 @@
     
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
                                               xPlayer: NO
-                                            localizer: self->_localizer];
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint gameOverTurnPosition = {0, 0};
@@ -286,7 +295,8 @@
     
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
                                               xPlayer: YES
-                                            localizer: self->_localizer];
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint gameOverTurnPosition = {0, 0};
@@ -320,7 +330,8 @@
     self->_field = [TTKMatrixFieldModel new];
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
                                               xPlayer: YES
-                                            localizer: self->_localizer];
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
@@ -386,7 +397,8 @@
     
     self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
                                               xPlayer: YES
-                                            localizer: self->_localizer];
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
     self->_sut.vcDelegate = self;
     
     struct TTKCellPoint gameOverTurnPosition = {0, 0};
