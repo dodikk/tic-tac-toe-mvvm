@@ -17,10 +17,22 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *upperLineOffset;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomLineOffset;
 
+
+@property (weak, nonatomic) IBOutlet UIButton* cell00;
+@property (weak, nonatomic) IBOutlet UIButton* cell01;
+@property (weak, nonatomic) IBOutlet UIButton* cell02;
+@property (weak, nonatomic) IBOutlet UIButton* cell10;
+@property (weak, nonatomic) IBOutlet UIButton* cell11;
+@property (weak, nonatomic) IBOutlet UIButton* cell12;
+@property (weak, nonatomic) IBOutlet UIButton* cell20;
+@property (weak, nonatomic) IBOutlet UIButton* cell21;
+@property (weak, nonatomic) IBOutlet UIButton* cell22;
+
 @end
 
 @implementation TTTGameVC
 {
+    NSArray* _buttonRows;
 }
 
 
@@ -37,7 +49,19 @@
     NSParameterAssert(nil != self.viewModel);
     
     [super viewDidLoad];
+    
+    [self setupButtonGrid];
     [self setupEqualLineSizeConstraints];
+}
+
+-(void)setupButtonGrid
+{
+    self->_buttonRows =
+    @[
+      @[self.cell00, self.cell01, self.cell02],
+      @[self.cell10, self.cell11, self.cell12],
+      @[self.cell20, self.cell21, self.cell22]
+    ];
 }
 
 -(void)setupEqualLineSizeConstraints
@@ -94,7 +118,11 @@
 -(void)viewModel:(id<TTKGameVM>)viewModel
 didChangeCellState:(struct TTKCellPoint)cellPosition
 {
-    NSAssert(NO, @"not implemented");
+    UIButton* button = self->_buttonRows[cellPosition.row][cellPosition.column];
+    UIImage* image = [self.viewModel imageForCell: cellPosition];
+    
+    [button setImage: image
+            forState: UIControlStateNormal];
 }
 
 -(void)viewModel:(id<TTKGameVM>)viewModel
