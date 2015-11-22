@@ -10,7 +10,6 @@
 
 #import <TicTacToeKit/TicTacToeKit.h>
 #import "TTKMatrixFieldModel.h"
-#import "TTKMatrixFieldModel+UnitTest.h"
 
 #import "TTKCellPoint.h"
 
