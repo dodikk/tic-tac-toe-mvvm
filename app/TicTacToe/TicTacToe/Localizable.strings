@@ -16,3 +16,13 @@
 "GAME_OVER__DRAW" = "A draw";
 
 
+"BAD_TURN__POSESSED_FIELD" = "Please selet an empty field";
+"BAD_TURN__AFTER_GAME_OVER" = "The game is over. No more turns can be made.";
+
+
+"GAME_OVER__ALERT_TITLE" = "Game Over";
+"BAD_TURN__ALERT_TITLE" = "Unable to make this turn";
+
+"ALERT_BUTTON__OK" = "OK";
+
+
