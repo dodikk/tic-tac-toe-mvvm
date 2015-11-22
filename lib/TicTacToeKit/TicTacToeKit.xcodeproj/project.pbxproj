@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E06E07F1C0146DF00E3CC6C /* TTKNilImageProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E06E07E1C0146DF00E3CC6C /* TTKNilImageProvider.m */; };
 		7E289B651BFF8542004F2BC3 /* TTKGameVMImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E289B641BFF8542004F2BC3 /* TTKGameVMImpl.m */; };
 		7E289B6B1BFF8CB6004F2BC3 /* TTKMatrixFieldModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E289B6A1BFF8CB6004F2BC3 /* TTKMatrixFieldModel.m */; };
 		7E289B751C007DEB004F2BC3 /* libTicTacToeKit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7EE61EE21BFF70EE00DE8F47 /* libTicTacToeKit.a */; };
@@ -41,6 +42,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		7E06E07C1C0146AA00E3CC6C /* TTKCellImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKCellImageProvider.h; sourceTree = "<group>"; };
+		7E06E07D1C0146DF00E3CC6C /* TTKNilImageProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKNilImageProvider.h; sourceTree = "<group>"; };
+		7E06E07E1C0146DF00E3CC6C /* TTKNilImageProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTKNilImageProvider.m; sourceTree = "<group>"; };
 		7E289B5F1BFF844F004F2BC3 /* TTKGameVM.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKGameVM.h; sourceTree = "<group>"; };
 		7E289B611BFF84D6004F2BC3 /* TTKGameVMDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTKGameVMDelegate.h; sourceTree = "<group>"; };
 		7E289B621BFF84F6004F2BC3 /* TTKCellPoint.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TTKCellPoint.h; sourceTree = "<group>"; };
@@ -83,6 +87,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7E06E07B1C01467E00E3CC6C /* ImageProvider */ = {
+			isa = PBXGroup;
+			children = (
+				7E06E07C1C0146AA00E3CC6C /* TTKCellImageProvider.h */,
+				7E06E07D1C0146DF00E3CC6C /* TTKNilImageProvider.h */,
+				7E06E07E1C0146DF00E3CC6C /* TTKNilImageProvider.m */,
+			);
+			path = ImageProvider;
+			sourceTree = "<group>";
+		};
 		7E289B5B1BFF8402004F2BC3 /* Types */ = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				7E289B661BFF8644004F2BC3 /* Field */,
+				7E06E07B1C01467E00E3CC6C /* ImageProvider */,
 				7E289B871C00BDC4004F2BC3 /* Localizer */,
 				7E289B801C0080D2004F2BC3 /* Player */,
 				7E289B5F1BFF844F004F2BC3 /* TTKGameVM.h */,
@@ -281,6 +296,7 @@
 			files = (
 				7E289B651BFF8542004F2BC3 /* TTKGameVMImpl.m in Sources */,
 				7E289B8E1C00BE27004F2BC3 /* TTKGameOverLocalizerStub.m in Sources */,
+				7E06E07F1C0146DF00E3CC6C /* TTKNilImageProvider.m in Sources */,
 				7E289B841C009853004F2BC3 /* TTKPlayerPOD.m in Sources */,
 				7E289B6B1BFF8CB6004F2BC3 /* TTKMatrixFieldModel.m in Sources */,
 			);

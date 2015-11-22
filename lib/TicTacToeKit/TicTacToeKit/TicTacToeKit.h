@@ -17,5 +17,7 @@
 
 #import <TicTacToeKit/GameScene/Player/TTKPlayer.h>
 #import <TicTacToeKit/GameScene/Localizer/TTKGameOverLocalizer.h>
+#import <TicTacToeKit/GameScene/ImageProvider/TTKCellImageProvider.h>
+
 
 
