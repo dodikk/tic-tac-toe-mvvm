@@ -10,6 +10,7 @@
 
 #import "TTTColorThemePOD.h"
 #import "TTTMenuThemePOD.h"
+#import "TTTDefautCellTheme.h"
 
 
 @implementation TTTColorThemeBuilder
@@ -25,6 +26,7 @@
     TTTColorThemePOD* result = [TTTColorThemePOD new];
     {
         result.menuTheme = [TTTMenuThemePOD new];
+        result.cellTheme = [TTTDefautCellTheme new];
     }
     
     

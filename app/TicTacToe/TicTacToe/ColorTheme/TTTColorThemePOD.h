@@ -13,5 +13,6 @@
 @interface TTTColorThemePOD : NSObject<TTTColorTheme>
 
 @property (nonatomic) id<TTTMenuTheme> menuTheme;
+@property (nonatomic) id<TTKCellImageProvider> cellTheme;
 
 @end

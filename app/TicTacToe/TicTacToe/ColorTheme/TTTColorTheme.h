@@ -9,10 +9,12 @@
 #import <Foundation/Foundation.h>
 
 @protocol TTTMenuTheme;
+@protocol TTKCellImageProvider;
 
 
 @protocol TTTColorTheme <NSObject>
 
 -(id<TTTMenuTheme>)menuTheme;
+-(id<TTKCellImageProvider>)cellTheme;
 
 @end
