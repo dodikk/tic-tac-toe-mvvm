@@ -20,6 +20,8 @@
 @property (weak, nonatomic) IBOutlet UIButton* cell21;
 @property (weak, nonatomic) IBOutlet UIButton* cell22;
 
+@property (weak, nonatomic) IBOutlet UILabel* turnIndicator;
+
 @end
 
 @implementation TTTGameVC
@@ -44,6 +46,7 @@
     
     [self setupButtonGrid];
     [self cleanupStoryboardStubs];
+    [self updateTurnIndicator];
 }
 
 -(void)setupButtonGrid
@@ -76,6 +79,11 @@
 }
 
 
+-(void)updateTurnIndicator
+{
+    self.turnIndicator.text = [self.viewModel turnIndicatorMessage];
+}
+
 #pragma mark - TTKGameVMDelegate
 -(void)viewModelDidDetectGameOver:(id<TTKGameVM>)viewModel
 {
@@ -105,6 +113,8 @@ didChangeCellState:(struct TTKCellPoint)cellPosition
     
     [button setImage: image
             forState: UIControlStateNormal];
+    
+    [self updateTurnIndicator];
 }
 
 -(void)viewModel:(id<TTKGameVM>)viewModel

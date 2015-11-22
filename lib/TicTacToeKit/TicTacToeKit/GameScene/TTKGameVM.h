@@ -23,6 +23,7 @@ didTapOnCell:(struct TTKCellPoint)cellPosition;
 
 
 -(id<TTKPlayer>)activePlayer;
+-(NSString*)turnIndicatorMessage;
 -(NSString*)gameOverMessage;
 -(UIImage*)imageForCell:(struct TTKCellPoint)cellPosition;
 

@@ -30,6 +30,7 @@
 
 @dynamic activePlayer;
 @dynamic gameOverMessage;
+@dynamic turnIndicatorMessage;
 
 -(id<TTKPlayer>)activePlayer
 {
@@ -201,6 +202,11 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     {
         return [self->_imageProvider imageForCellTakenByO];
     }
+}
+
+-(NSString*)turnIndicatorMessage
+{
+    return @"Turn unknown : Not implemented";
 }
 
 @end
