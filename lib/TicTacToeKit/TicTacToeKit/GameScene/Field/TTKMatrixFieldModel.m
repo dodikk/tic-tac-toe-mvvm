@@ -35,14 +35,19 @@ static const size_t FIELD_SIZE = 3;
 
 -(void)nullifyCells
 {
+    // TODO : optimize with ::memset() if critical
+    //
+    
     for (size_t x = 0; x != FIELD_SIZE; ++x)
-        for (size_t y = 0; y != FIELD_SIZE; ++y)
     {
-        self->_cells[x][y] = 0;
+        for (size_t y = 0; y != FIELD_SIZE; ++y)
+        {
+            self->_cells[x][y] = 0;
+        }
     }
 }
 
-#pragma mark - TTKFieldState
+#pragma mark - TTKFieldState - Cell state getters
 -(BOOL)isFieldEmpty:(struct TTKCellPoint)cellPosition
 {
     // TODO : assert range if needed
@@ -59,6 +64,8 @@ static const size_t FIELD_SIZE = 3;
     return (FIELD_O == self->_cells[cellPosition.row][cellPosition.column]);
 }
 
+
+#pragma mark - TTKFieldState - GameOver
 -(BOOL)isGameOver
 {
     // TODO : reduce loops count by extracting "state" ivar (if needed)
@@ -90,6 +97,17 @@ static const size_t FIELD_SIZE = 3;
     return (rawGameResult > 0);
 }
 
+#pragma mark - TTKMutableFieldState
+-(void)takeField:(struct TTKCellPoint)cellPosition
+             byX:(BOOL)isX_Or_O
+{
+    NSParameterAssert([self isFieldEmpty: cellPosition]);
+    
+    CellState_t value = isX_Or_O ? FIELD_X : FIELD_O;
+    self->_cells[cellPosition.row][cellPosition.column] = value;
+}
+
+#pragma mark - logic
 -(CellState_t)rawGameResult
 {
     CellState_t rows[3]    = {0};
@@ -100,16 +118,16 @@ static const size_t FIELD_SIZE = 3;
     
     for (size_t row = 0; row != FIELD_SIZE; ++row)
     {
-//        rows[row] =
-//            self->_cells[row][0] +
-//            self->_cells[row][1] +
-//            self->_cells[row][2];
+        //        rows[row] =
+        //            self->_cells[row][0] +
+        //            self->_cells[row][1] +
+        //            self->_cells[row][2];
         for (size_t column = 0; column != FIELD_SIZE; ++column)
         {
             rows[row] += self->_cells[row][column];
         }
         
-
+        
         if ( FIELD_SIZE == abs(rows[row]) )
         {
             return rows[row];
@@ -118,10 +136,10 @@ static const size_t FIELD_SIZE = 3;
     
     for (size_t column = 0; column != FIELD_SIZE; ++column)
     {
-//        columns[column] =
-//            self->_cells[0][column] +
-//            self->_cells[1][column] +
-//            self->_cells[2][column];
+        //        columns[column] =
+        //            self->_cells[0][column] +
+        //            self->_cells[1][column] +
+        //            self->_cells[2][column];
         for (size_t row = 0; row != FIELD_SIZE; ++row)
         {
             columns[column] += self->_cells[row][column];
@@ -133,12 +151,12 @@ static const size_t FIELD_SIZE = 3;
             return columns[column];
         }
     }
-
-
-//    diagonal  =
-//        self->_cells[0][0] +
-//        self->_cells[1][1] +
-//        self->_cells[2][2];
+    
+    
+    //    diagonal  =
+    //        self->_cells[0][0] +
+    //        self->_cells[1][1] +
+    //        self->_cells[2][2];
     for (size_t diagonalIndex = 0; diagonalIndex != FIELD_SIZE; ++diagonalIndex)
     {
         diagonal += self->_cells[diagonalIndex][diagonalIndex];
@@ -149,15 +167,14 @@ static const size_t FIELD_SIZE = 3;
     }
     
     
-//    rDiagonal =
-//        self->_cells[2][0] +
-//        self->_cells[1][1] +
-//        self->_cells[0][2];
+    //    rDiagonal =
+    //        self->_cells[2][0] +
+    //        self->_cells[1][1] +
+    //        self->_cells[0][2];
     for (size_t diagonalIndex = 0; diagonalIndex != FIELD_SIZE; ++diagonalIndex)
     {
         rDiagonal += self->_cells[FIELD_SIZE - diagonalIndex - 1][diagonalIndex];
     }
-    
     if (FIELD_SIZE == abs(rDiagonal))
     {
         return rDiagonal;
@@ -171,26 +188,18 @@ static const size_t FIELD_SIZE = 3;
     BOOL isEmptyFieldExists = NO;
     
     for (size_t x = 0; x != FIELD_SIZE; ++x)
-        for (size_t y = 0; y != FIELD_SIZE; ++y)
     {
-        if (FIELD_EMPTY == self->_cells[x][y])
+        for (size_t y = 0; y != FIELD_SIZE; ++y)
         {
-            isEmptyFieldExists = YES;
-            break;
+            if (FIELD_EMPTY == self->_cells[x][y])
+            {
+                isEmptyFieldExists = YES;
+                break;
+            }
         }
     }
     
     return !isEmptyFieldExists;
-}
-
-#pragma mark - TTKMutableFieldState
--(void)takeField:(struct TTKCellPoint)cellPosition
-             byX:(BOOL)isX_Or_O
-{
-    NSParameterAssert([self isFieldEmpty: cellPosition]);
-    
-    CellState_t value = isX_Or_O ? FIELD_X : FIELD_O;
-    self->_cells[cellPosition.row][cellPosition.column] = value;
 }
 
 @end
