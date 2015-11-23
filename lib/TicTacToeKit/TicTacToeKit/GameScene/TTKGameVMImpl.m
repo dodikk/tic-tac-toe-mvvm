@@ -246,7 +246,7 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     {
         return NO;
     }
-    
+
     return [self isFirstUserWins];
 }
 
@@ -258,7 +258,7 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     }
     else if ([self->_fieldModel isDraw])
     {
-        return @"I have a draw in a tic-tac-toe game";
+        return [self->_localizer socialMessageDraw];
     }
     
     BOOL isXWinsAndSelected =  self->_isFirstTurnForPlayerX && [self->_fieldModel isWinnerPlayerX];
@@ -268,11 +268,11 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     
     if (isXWinsAndSelected || isOWinsAndSelected)
     {
-        return @"I have won a tic-tac-toe game";
+        return [self->_localizer socialMessageWin];
     }
     else
     {
-        return @"I have lost a tic-tac-toe game";
+        return [self->_localizer socialMessageLoose];
     }
 }
 
