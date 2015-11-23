@@ -31,6 +31,9 @@
 @dynamic activePlayer;
 @dynamic gameOverMessage;
 @dynamic turnIndicatorMessage;
+@dynamic isShareButtonsVisible;
+@dynamic socialMessage;
+
 
 -(id<TTKPlayer>)activePlayer
 {
@@ -95,7 +98,7 @@
     }
 }
 
-#pragma mark - TTKGameVM
+#pragma mark - Game flow
 -(void)view:(id)view
 didTapOnCell:(struct TTKCellPoint)cellPosition
 {
@@ -158,7 +161,6 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     }
 }
 
-
 -(void)invertActiveIndex
 {
     if (0 == self->_indexOfActivePlayer)
@@ -178,6 +180,8 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     }
 }
 
+
+#pragma mark - Game state utils
 -(NSString*)gameOverMessage
 {
     if (![self->_fieldModel isGameOver])
@@ -225,6 +229,46 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     NSString* result = [NSString stringWithFormat: messageFormat, self.activePlayer.playerName];
     
     return result;
+}
+
+#pragma mark - Social
+-(BOOL)isShareButtonsVisible
+{
+    if (![self->_fieldModel isGameOver])
+    {
+        return NO;
+    }
+    
+    BOOL isXWinsAndSelected =  self->_isFirstTurnForPlayerX && [self->_fieldModel isWinnerPlayerX];
+    BOOL isOWinsAndSelected = !self->_isFirstTurnForPlayerX && [self->_fieldModel isWinnerPlayerO];
+    
+    return isXWinsAndSelected || isOWinsAndSelected;
+}
+
+-(NSString*)socialMessage
+{
+    if (![self->_fieldModel isGameOver])
+    {
+        return nil;
+    }
+    else if ([self->_fieldModel isDraw])
+    {
+        return @"I have a draw in a tic-tac-toe game";
+    }
+    
+    BOOL isXWinsAndSelected =  self->_isFirstTurnForPlayerX && [self->_fieldModel isWinnerPlayerX];
+    
+    BOOL isOWinsAndSelected = !self->_isFirstTurnForPlayerX && [self->_fieldModel isWinnerPlayerO];
+
+    
+    if (isXWinsAndSelected || isOWinsAndSelected)
+    {
+        return @"I have won a tic-tac-toe game";
+    }
+    else
+    {
+        return @"I have lost a tic-tac-toe game";
+    }
 }
 
 @end

@@ -29,6 +29,9 @@ NS_REQUIRES_SUPER
 __attribute__((nonnull));
 
 
+@property (nonatomic, readonly) BOOL isShareButtonsVisible;
+@property (nonatomic, readonly) NSString* socialMessage;
+
 @property (nonatomic, readonly) NSArray* players;
 @property (nonatomic, readonly) NSString* gameOverMessage;
 @property (nonatomic, readonly) NSString* turnIndicatorMessage;

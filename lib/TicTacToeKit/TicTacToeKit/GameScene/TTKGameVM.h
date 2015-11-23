@@ -27,6 +27,10 @@ didTapOnCell:(struct TTKCellPoint)cellPosition;
 -(NSString*)gameOverMessage;
 -(UIImage*)imageForCell:(struct TTKCellPoint)cellPosition;
 
+-(BOOL)isShareButtonsVisible;
+-(NSString*)socialMessage;
+
+
 /**
  Typically a weak property
  */
