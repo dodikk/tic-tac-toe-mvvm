@@ -127,36 +127,41 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
 
 -(void)makeTurnWithCell:(struct TTKCellPoint)cellPosition
 {
+    [self updateFieldAndNotify: cellPosition];
+    [self transferTurnAndNotify];
+    [self checkGameOverAndNotify];
+}
+//
+-(void)updateFieldAndNotify:(struct TTKCellPoint)cellPosition
+{
     id<TTKGameVMDelegate> strongDelegate = self.vcDelegate;
     
+    BOOL isTurnOfX = [self.activePlayer isPlayerX];
+    [self->_fieldModel takeField: cellPosition
+                             byX: isTurnOfX];
     
-    // Update field and notify
-    {
-        BOOL isTurnOfX = [self.activePlayer isPlayerX];
-        [self->_fieldModel takeField: cellPosition
-                                 byX: isTurnOfX];
-        
-        [strongDelegate viewModel: self
-               didChangeCellState: cellPosition];
-    }
+    [strongDelegate viewModel: self
+           didChangeCellState: cellPosition];
+}
 
-    // Transfer turn and notify
-    {
-        [self invertActiveIndex];
-        [strongDelegate viewModelDidTransferTurn: self];
-    }
+-(void)transferTurnAndNotify
+{
+    id<TTKGameVMDelegate> strongDelegate = self.vcDelegate;
+    
+    [self invertActiveIndex];
+    [strongDelegate viewModelDidTransferTurn: self];
+}
+
+-(void)checkGameOverAndNotify
+{
+    id<TTKGameVMDelegate> strongDelegate = self.vcDelegate;
     
     if ([self->_fieldModel isGameOver])
     {
         [strongDelegate viewModelDidDetectGameOver: self];
-        return;
     }
 }
-//
-//-(void)updateFieldAndNotify
-//{
-//    
-//}
+
 
 -(void)invertActiveIndex
 {
