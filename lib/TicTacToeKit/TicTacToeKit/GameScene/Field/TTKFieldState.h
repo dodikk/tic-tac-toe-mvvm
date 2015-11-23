@@ -21,5 +21,6 @@
 -(BOOL)isGameOver;
 -(BOOL)isDraw;
 -(BOOL)isWinnerPlayerX;
+-(BOOL)isWinnerPlayerO;
 
 @end

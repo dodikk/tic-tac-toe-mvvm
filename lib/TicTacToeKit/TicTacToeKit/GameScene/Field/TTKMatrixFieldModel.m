@@ -97,6 +97,13 @@ static const size_t FIELD_SIZE = 3;
     return (rawGameResult > 0);
 }
 
+-(BOOL)isWinnerPlayerO
+{
+    // TODO : reduce loops count by extracting "state" ivar (if needed)
+    CellState_t rawGameResult = [self rawGameResult];
+    return (rawGameResult < 0);
+}
+
 #pragma mark - TTKMutableFieldState
 -(void)takeField:(struct TTKCellPoint)cellPosition
              byX:(BOOL)isX_Or_O
