@@ -31,3 +31,8 @@
 "PLAYER_O__NAME" = "O";
 
 
+"SOCIAL_WIN"   = "I have won a tic-tac-toe game";
+"SOCIAL_LOOSE" = "I have lost a tic-tac-toe game";
+"SOCIAL_DRAW"  = "I have a draw in a tic-tac-toe game";
+
+

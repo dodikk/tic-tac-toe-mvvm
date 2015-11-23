@@ -18,4 +18,9 @@
 -(NSString*)xPlayerName;
 -(NSString*)oPlayerName;
 
+-(NSString*)socialMessageWin;
+-(NSString*)socialMessageLoose;
+-(NSString*)socialMessageDraw;
+
+
 @end

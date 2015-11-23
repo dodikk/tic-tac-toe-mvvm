@@ -40,5 +40,20 @@
     return @"O";
 }
 
+-(NSString*)socialMessageWin
+{
+    return @"I have won a tic-tac-toe game";
+}
+
+-(NSString*)socialMessageLoose
+{
+    return @"I have lost a tic-tac-toe game";
+}
+
+-(NSString*)socialMessageDraw
+{
+    return @"I have a draw in a tic-tac-toe game";
+}
 
 @end
+

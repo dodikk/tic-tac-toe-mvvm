@@ -40,5 +40,20 @@
     return NSLocalizedString(@"PLAYER_O__NAME", nil);
 }
 
+-(NSString*)socialMessageWin
+{
+    return NSLocalizedString(@"SOCIAL_WIN", nil);
+}
+
+-(NSString*)socialMessageLoose
+{
+    return NSLocalizedString(@"SOCIAL_LOOSE", nil);
+}
+
+-(NSString*)socialMessageDraw
+{
+    return NSLocalizedString(@"SOCIAL_DRAW", nil);
+}
+
 
 @end
