@@ -32,6 +32,8 @@
     
     NSUInteger _gameOverCount;
     NSUInteger _afterGameOverCount;
+    
+    NSUInteger _turnTransferCount;
 }
 
 -(void)cleanupCounters
@@ -41,6 +43,7 @@
     self->_turnFailureCount   = 0;
     self->_gameOverCount      = 0;
     self->_afterGameOverCount = 0;
+    self->_turnTransferCount  = 0;
 }
 
 -(void)setUp
@@ -147,6 +150,7 @@
     
     id<TTKPlayer> activePlayerBefore = [self->_sut activePlayer];
     XCTAssertTrue(0 == self->_turnCount);
+    XCTAssertTrue(0 == self->_turnTransferCount);
     XCTAssertEqualObjects(@"Turn of player X", self->_sut.turnIndicatorMessage);
     
     
@@ -161,6 +165,7 @@
     // TODO : introduce XCTest expectations
     // in case the code becomes asynchronous
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(1 == self->_turnTransferCount);
     XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(0 == self->_gameOverCount);
     XCTAssertTrue(0 == self->_afterGameOverCount);
@@ -210,6 +215,7 @@
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
     XCTAssertTrue(0 == self->_turnCount);
+    XCTAssertTrue(0 == self->_turnTransferCount);
     XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(0 == self->_gameOverCount);
     XCTAssertTrue(0 == self->_afterGameOverCount);
@@ -226,6 +232,7 @@
     // TODO : introduce XCTest expectations
     // in case the code becomes asynchronous
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(1 == self->_turnTransferCount);
     XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(0 == self->_gameOverCount);
     XCTAssertTrue(0 == self->_afterGameOverCount);
@@ -267,6 +274,7 @@
     XCTAssertTrue([self->_field isFieldTakenByY: gameOverTurnPosition]);
     
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(1 == self->_turnTransferCount);
     XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(1 == self->_gameOverCount);
     XCTAssertTrue(0 == self->_afterGameOverCount);
@@ -317,6 +325,7 @@
     XCTAssertTrue([self->_field isFieldTakenByX: gameOverTurnPosition]);
     
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(1 == self->_turnTransferCount);
     XCTAssertTrue(0 == self->_turnFailureCount);
     XCTAssertTrue(1 == self->_gameOverCount);
     XCTAssertTrue(0 == self->_afterGameOverCount);
@@ -345,6 +354,7 @@
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
     XCTAssertTrue(0 == self->_turnCount);
+    XCTAssertTrue(0 == self->_turnTransferCount);
     XCTAssertEqualObjects(@"Turn of player X", self->_sut.turnIndicatorMessage);
     
     
@@ -352,6 +362,7 @@
     [self->_sut view: self
         didTapOnCell: firstTurnPosition];
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(1 == self->_turnTransferCount);
     XCTAssertEqualObjects(@"Turn of player O", self->_sut.turnIndicatorMessage);
     
     id<TTKPlayer> activePlayerBefore = [self->_sut activePlayer];
@@ -364,6 +375,7 @@
     // TODO : introduce XCTest expectations
     // in case the code becomes asynchronous
     XCTAssertTrue(1 == self->_turnCount);
+    XCTAssertTrue(1 == self->_turnTransferCount);
     XCTAssertTrue(1 == self->_turnFailureCount);
     XCTAssertTrue(0 == self->_gameOverCount);
     XCTAssertTrue(0 == self->_afterGameOverCount);
@@ -425,6 +437,7 @@
         
         // TODO : maybe failure should be reported
         XCTAssertTrue(0 == self->_turnCount);
+        XCTAssertTrue(0 == self->_turnTransferCount);
         XCTAssertTrue(0 == self->_turnFailureCount);
         XCTAssertTrue(0 == self->_gameOverCount);
         XCTAssertTrue(1 == self->_afterGameOverCount);
@@ -443,6 +456,7 @@
         XCTAssertTrue([self->_field isFieldTakenByX: gameOverTurnPosition]);
         
         XCTAssertTrue(0 == self->_turnCount);
+        XCTAssertTrue(0 == self->_turnTransferCount);
         XCTAssertTrue(0 == self->_turnFailureCount);
         XCTAssertTrue(0 == self->_gameOverCount);
         XCTAssertTrue(2 == self->_afterGameOverCount);
@@ -495,6 +509,11 @@ didTapCellAfterGameOver:(struct TTKCellPoint)cellPosition
                                                     cell: cellPosition];
     
     [self->_callbacksLog addObject: turnDescription];
+}
+
+-(void)viewModelDidTransferTurn:(id<TTKGameVM>)viewModel
+{
+    ++self->_turnTransferCount;
 }
 
 
