@@ -27,6 +27,11 @@
 didChangeCellState:(struct TTKCellPoint)cellPosition;
 
 /**
+ Active player has not been changed after sucecssful turn.
+ */
+-(void)viewModelDidTransferTurn:(id<TTKGameVM>)viewModel;
+
+/**
  The turn has failed. No turn transfer will occur.
  */
 -(void)viewModel:(id<TTKGameVM>)viewModel

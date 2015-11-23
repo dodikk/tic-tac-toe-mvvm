@@ -113,7 +113,10 @@ didChangeCellState:(struct TTKCellPoint)cellPosition
     
     [button setImage: image
             forState: UIControlStateNormal];
-    
+}
+
+-(void)viewModelDidTransferTurn:(id<TTKGameVM>)viewModel
+{
     [self updateTurnIndicator];
 }
 
