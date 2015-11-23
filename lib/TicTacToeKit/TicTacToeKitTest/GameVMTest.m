@@ -285,6 +285,98 @@
     
     XCTAssertEqualObjects([self->_sut gameOverMessage], @"O wins");
     XCTAssertEqualObjects(@"O wins", self->_sut.turnIndicatorMessage);
+    
+    XCTAssertEqualObjects(@"I have won a tic-tac-toe game", [self->_sut socialMessage]);
+    XCTAssertTrue([self->_sut isShareButtonsVisible]);
+}
+
+
+// 0 x x
+// 0 x -
+// 0 - -
+-(void)testSocialMessageForWin
+{
+    // GIVEN
+    self->_field = [TTKMatrixFieldModel new];
+    {
+        [self->_field takeField: (struct TTKCellPoint){0, 0} byX: NO];
+        [self->_field takeField: (struct TTKCellPoint){1, 0} byX: NO];
+        [self->_field takeField: (struct TTKCellPoint){2, 0} byX: NO];
+        
+        [self->_field takeField: (struct TTKCellPoint){0, 1} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){0, 2} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){1, 1} byX: YES];
+    }
+    
+    self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
+                                              xPlayer: NO
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
+    self->_sut.vcDelegate = self;
+    
+    
+    XCTAssertEqualObjects(@"I have won a tic-tac-toe game", [self->_sut socialMessage]);
+    XCTAssertTrue([self->_sut isShareButtonsVisible]);
+}
+
+// x x x
+// 0 x -
+// 0 - -
+-(void)testSocialMessageForLoose
+{
+    // GIVEN
+    self->_field = [TTKMatrixFieldModel new];
+    {
+        [self->_field takeField: (struct TTKCellPoint){0, 0} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){1, 0} byX: NO];
+        [self->_field takeField: (struct TTKCellPoint){2, 0} byX: NO];
+        
+        [self->_field takeField: (struct TTKCellPoint){0, 1} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){0, 2} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){1, 1} byX: YES];
+    }
+    
+    self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
+                                              xPlayer: NO
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
+    self->_sut.vcDelegate = self;
+    
+    
+    XCTAssertEqualObjects(@"I have lost a tic-tac-toe game", [self->_sut socialMessage]);
+    XCTAssertFalse([self->_sut isShareButtonsVisible]);
+}
+
+
+// o x o
+// o x x
+// x o o
+-(void)testSocialMessageForDraw
+{
+    // GIVEN
+    self->_field = [TTKMatrixFieldModel new];
+    {
+        [self->_field takeField: (struct TTKCellPoint){0, 0} byX: NO];
+        [self->_field takeField: (struct TTKCellPoint){0, 1} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){0, 2} byX: NO ];
+        
+        [self->_field takeField: (struct TTKCellPoint){1, 0} byX: NO ];
+        [self->_field takeField: (struct TTKCellPoint){1, 1} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){1, 2} byX: YES];
+        
+        [self->_field takeField: (struct TTKCellPoint){2, 0} byX: YES];
+        [self->_field takeField: (struct TTKCellPoint){2, 1} byX: NO ];
+        [self->_field takeField: (struct TTKCellPoint){2, 2} byX: NO ];
+    }
+    
+    self->_sut = [[TTKGameVMImpl alloc] initWithField: self->_field
+                                              xPlayer: YES
+                                            localizer: self->_localizer
+                                        imageProvider: self->_imageProvider];
+    self->_sut.vcDelegate = self;
+    
+    XCTAssertEqualObjects(@"I have a draw in a tic-tac-toe game", [self->_sut socialMessage]);
+    XCTAssertFalse([self->_sut isShareButtonsVisible]);
 }
 
 
@@ -336,6 +428,9 @@
     
     XCTAssertEqualObjects([self->_sut gameOverMessage], @"A draw");
     XCTAssertEqualObjects(@"A draw", self->_sut.turnIndicatorMessage);
+    
+    XCTAssertEqualObjects(@"I have a draw in a tic-tac-toe game", [self->_sut socialMessage]);
+    XCTAssertFalse([self->_sut isShareButtonsVisible]);
 }
 
 
