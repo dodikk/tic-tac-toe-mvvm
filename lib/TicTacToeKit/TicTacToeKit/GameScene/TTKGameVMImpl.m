@@ -232,6 +232,14 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
 }
 
 #pragma mark - Social
+-(BOOL)isFirstUserWins
+{
+    BOOL isXWinsAndSelected =  self->_isFirstTurnForPlayerX && [self->_fieldModel isWinnerPlayerX];
+    BOOL isOWinsAndSelected = !self->_isFirstTurnForPlayerX && [self->_fieldModel isWinnerPlayerO];
+    
+    return isXWinsAndSelected || isOWinsAndSelected;
+}
+
 -(BOOL)isShareButtonsVisible
 {
     if (![self->_fieldModel isGameOver])
@@ -239,10 +247,7 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
         return NO;
     }
     
-    BOOL isXWinsAndSelected =  self->_isFirstTurnForPlayerX && [self->_fieldModel isWinnerPlayerX];
-    BOOL isOWinsAndSelected = !self->_isFirstTurnForPlayerX && [self->_fieldModel isWinnerPlayerO];
-    
-    return isXWinsAndSelected || isOWinsAndSelected;
+    return [self isFirstUserWins];
 }
 
 -(NSString*)socialMessage
