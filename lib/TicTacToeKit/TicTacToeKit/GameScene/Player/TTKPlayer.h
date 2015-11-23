@@ -12,6 +12,8 @@
 
 @protocol TTKPlayer <NSObject>
 
+-(NSString*)playerName;
+
 -(BOOL)isPlayerX;
 -(BOOL)isPlayerO;
 -(UIImage*)imageForPosessedCell;

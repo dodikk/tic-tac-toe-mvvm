@@ -13,6 +13,8 @@
 
 @interface TTKPlayerPOD : NSObject<TTKPlayer>
 
+@property (nonatomic) NSString* playerName;
+
 @property (nonatomic) BOOL isPlayerX;
 @property (nonatomic) BOOL isPlayerO;
 @property (nonatomic) UIImage* imageForPosessedCell;
