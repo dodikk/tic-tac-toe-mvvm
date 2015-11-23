@@ -70,6 +70,7 @@
     
     TTKPlayerPOD* playerX = [TTKPlayerPOD new];
     {
+        playerX.playerName = @"X";
         playerX.isPlayerX = YES;
         playerX.isPlayerO = NO;
         
@@ -79,6 +80,7 @@
 
     TTKPlayerPOD* playerO = [TTKPlayerPOD new];
     {
+        playerO.playerName = @"O";
         playerO.isPlayerX = NO;
         playerO.isPlayerO = YES;
         
@@ -211,7 +213,9 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
         return self.gameOverMessage;
     }
     
-    return @"Turn unknown : Not implemented";
+    
+    NSString* result = [NSString stringWithFormat: @"Turn of player %@", self.activePlayer.playerName];
+    return result;
 }
 
 @end
