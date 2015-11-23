@@ -247,7 +247,8 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
         return NO;
     }
 
-    return [self isFirstUserWins];
+    return YES;
+//    return [self isFirstUserWins];
 }
 
 -(NSString*)socialMessage
