@@ -130,26 +130,33 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     id<TTKGameVMDelegate> strongDelegate = self.vcDelegate;
     
     
-    BOOL isTurnOfX = [self.activePlayer isPlayerX];
-    
-    // Order matters
-    [self->_fieldModel takeField: cellPosition
-                             byX: isTurnOfX];
-    
-    [strongDelegate viewModel: self
-           didChangeCellState: cellPosition];
-    
-    [self invertActiveIndex];
-    
-    
+    // Update field and notify
+    {
+        BOOL isTurnOfX = [self.activePlayer isPlayerX];
+        [self->_fieldModel takeField: cellPosition
+                                 byX: isTurnOfX];
+        
+        [strongDelegate viewModel: self
+               didChangeCellState: cellPosition];
+    }
+
+    // Transfer turn and notify
+    {
+        [self invertActiveIndex];
+        [strongDelegate viewModelDidTransferTurn: self];
+    }
     
     if ([self->_fieldModel isGameOver])
     {
         [strongDelegate viewModelDidDetectGameOver: self];
         return;
     }
-    
 }
+//
+//-(void)updateFieldAndNotify
+//{
+//    
+//}
 
 -(void)invertActiveIndex
 {
