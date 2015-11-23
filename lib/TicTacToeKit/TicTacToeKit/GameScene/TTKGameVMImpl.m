@@ -70,7 +70,7 @@
     
     TTKPlayerPOD* playerX = [TTKPlayerPOD new];
     {
-        playerX.playerName = @"X";
+        playerX.playerName = self->_localizer.xPlayerName;
         playerX.isPlayerX = YES;
         playerX.isPlayerO = NO;
         
@@ -80,7 +80,7 @@
 
     TTKPlayerPOD* playerO = [TTKPlayerPOD new];
     {
-        playerO.playerName = @"O";
+        playerO.playerName = self->_localizer.oPlayerName;
         playerO.isPlayerX = NO;
         playerO.isPlayerO = YES;
         
@@ -213,8 +213,9 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
         return self.gameOverMessage;
     }
     
+    NSString* messageFormat = [self->_localizer turnMessageFormat];
+    NSString* result = [NSString stringWithFormat: messageFormat, self.activePlayer.playerName];
     
-    NSString* result = [NSString stringWithFormat: @"Turn of player %@", self.activePlayer.playerName];
     return result;
 }
 

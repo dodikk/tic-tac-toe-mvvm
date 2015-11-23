@@ -14,4 +14,8 @@
 -(NSString*)oPlayerWinsMessage;
 -(NSString*)drawMessage;
 
+-(NSString*)turnMessageFormat;
+-(NSString*)xPlayerName;
+-(NSString*)oPlayerName;
+
 @end

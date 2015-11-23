@@ -25,4 +25,20 @@
     return @"A draw";
 }
 
+-(NSString*)turnMessageFormat
+{
+    return @"Turn of player %@";
+}
+
+-(NSString*)xPlayerName
+{
+    return @"X";
+}
+
+-(NSString*)oPlayerName
+{
+    return @"O";
+}
+
+
 @end

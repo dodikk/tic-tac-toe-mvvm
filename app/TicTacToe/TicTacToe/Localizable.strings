@@ -26,3 +26,8 @@
 "ALERT_BUTTON__OK" = "OK";
 
 
+"TURN_MESSAGE_FORMAT" = "Turn of player %@";
+"PLAYER_X__NAME" = "X";
+"PLAYER_O__NAME" = "O";
+
+

@@ -25,4 +25,20 @@
     return NSLocalizedString(@"GAME_OVER__DRAW", nil);
 }
 
+-(NSString*)turnMessageFormat
+{
+    return NSLocalizedString(@"TURN_MESSAGE_FORMAT", nil);
+}
+
+-(NSString*)xPlayerName
+{
+    return NSLocalizedString(@"PLAYER_X__NAME", nil);
+}
+
+-(NSString*)oPlayerName
+{
+    return NSLocalizedString(@"PLAYER_O__NAME", nil);
+}
+
+
 @end
