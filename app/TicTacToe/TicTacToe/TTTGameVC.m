@@ -98,9 +98,78 @@
     };
 
     
-    UIAlertController* alert = [TTTAlertHelper gameOverMessage: message
-                                            withButtonCallback: onOkTapped];
-    [self presentViewController: alert
+    UIAlertControllerButtonHandler onTwitterTapped = ^void(UIAlertAction *action)
+    {
+        TTTGameVC* strongSelf = weakSelf;
+        [strongSelf showTwitter];
+    };
+    
+    BOOL isShare = [self.viewModel isShareButtonsVisible];
+    if (!isShare)
+    {
+        UIAlertController* alert = [TTTAlertHelper gameOverMessage: message
+                                                withButtonCallback: onOkTapped];
+        [self presentViewController: alert
+                           animated: YES
+                         completion: nil];
+    }
+    else
+    {
+        NSString* title = NSLocalizedString(@"GAME_OVER__ALERT_TITLE", nil);
+        
+        UIAlertController* alert =
+        [UIAlertController alertControllerWithTitle: title
+                                            message: message
+                                     preferredStyle: UIAlertControllerStyleAlert];
+        
+        if ([SLComposeViewController isAvailableForServiceType: SLServiceTypeTwitter])
+        {
+            UIAlertAction* twitterButton =
+            [UIAlertAction actionWithTitle: NSLocalizedString(@"SOCIAL_BUTTON__TWITTER", nil)
+                                     style: UIAlertActionStyleCancel
+                                   handler: onTwitterTapped];
+            [alert addAction: twitterButton];
+        }
+        
+        UIAlertAction* okButton =
+        [UIAlertAction actionWithTitle: NSLocalizedString(@"ALERT_BUTTON__OK", nil)
+                                 style: UIAlertActionStyleCancel
+                               handler: onOkTapped];
+        
+        
+        [alert addAction: okButton];
+        
+        [self presentViewController: alert
+                           animated: YES
+                         completion: nil];
+    }
+}
+
+-(void)showTwitter
+{
+//   SLServiceTypeFacebook;
+//   SLServiceTypeTwitter;
+//   SLServiceTypeSinaWeibo;
+//   SLServiceTypeTencentWeibo;
+    
+    NSParameterAssert([SLComposeViewController isAvailableForServiceType: SLServiceTypeTwitter]);
+    __weak TTTGameVC* weakSelf = self;
+    
+    SLComposeViewControllerCompletionHandler onShareDone  =
+    ^void(SLComposeViewControllerResult result)
+    {
+        TTTGameVC* strongSelf = weakSelf;
+        [strongSelf navigateToMainMenu];
+    };
+    
+    SLComposeViewController* share =
+    [SLComposeViewController composeViewControllerForServiceType: SLServiceTypeTwitter];
+    {
+        share.initialText = self->_viewModel.socialMessage;
+        share.completionHandler = onShareDone;
+    }
+    
+    [self presentViewController: share
                        animated: YES
                      completion: nil];
 }
