@@ -12,6 +12,7 @@
 		7E289B911C00F29F004F2BC3 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 7E289B901C00F29F004F2BC3 /* Localizable.strings */; };
 		7E289B991C0137D3004F2BC3 /* TTTMainMenuVC.mm in Sources */ = {isa = PBXBuildFile; fileRef = 7E289B981C0137D3004F2BC3 /* TTTMainMenuVC.mm */; };
 		7E289B9C1C013805004F2BC3 /* TTTMainMenuLocalizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7E289B9B1C013805004F2BC3 /* TTTMainMenuLocalizer.m */; };
+		7E6C8D721C02A03900559E5F /* Social.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E6C8D711C02A03900559E5F /* Social.framework */; };
 		7EE61EB61BFF6F7A00DE8F47 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EB51BFF6F7A00DE8F47 /* main.m */; };
 		7EE61EB91BFF6F7A00DE8F47 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7EE61EB81BFF6F7A00DE8F47 /* AppDelegate.m */; };
 		7EE61EBF1BFF6F7A00DE8F47 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7EE61EBD1BFF6F7A00DE8F47 /* Main.storyboard */; };
@@ -68,6 +69,7 @@
 		7E289B9A1C013805004F2BC3 /* TTTMainMenuLocalizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TTTMainMenuLocalizer.h; sourceTree = "<group>"; };
 		7E289B9B1C013805004F2BC3 /* TTTMainMenuLocalizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TTTMainMenuLocalizer.m; sourceTree = "<group>"; };
 		7E289B9D1C013BE7004F2BC3 /* UIKitTypes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UIKitTypes.h; sourceTree = "<group>"; };
+		7E6C8D711C02A03900559E5F /* Social.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Social.framework; path = System/Library/Frameworks/Social.framework; sourceTree = SDKROOT; };
 		7EE61EB11BFF6F7A00DE8F47 /* TicTacToe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TicTacToe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7EE61EB51BFF6F7A00DE8F47 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7EE61EB71BFF6F7A00DE8F47 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E6C8D721C02A03900559E5F /* Social.framework in Frameworks */,
 				7EE61EF61BFF713E00DE8F47 /* libTicTacToeKit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -135,6 +138,7 @@
 		7EE61EA81BFF6F7A00DE8F47 = {
 			isa = PBXGroup;
 			children = (
+				7E6C8D711C02A03900559E5F /* Social.framework */,
 				7EE61F091BFF761600DE8F47 /* TicTacToe.pch */,
 				7E289B901C00F29F004F2BC3 /* Localizable.strings */,
 				7E289B951C013442004F2BC3 /* ObjcCastFunctions.hpp */,

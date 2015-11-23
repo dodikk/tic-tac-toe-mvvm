@@ -27,6 +27,7 @@
     #import <TicTacToeKit/TicTacToeKit.h>
 
 
+    #import <Social/Social.h>
     #import <Foundation/Foundation.h>
     #import <UIKit/UIKit.h>
 #endif
