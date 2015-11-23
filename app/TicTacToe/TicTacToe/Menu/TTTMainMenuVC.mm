@@ -109,14 +109,4 @@
     gameScreen.viewModel = viewModel;
 }
 
--(IBAction)onFirstPlayerButtonTapped:(id)sender
-{
-//    NSAssert(NO, @"not implemented");
-}
-
--(IBAction)secondPlayerButtonTapped:(id)sender
-{
-//    NSAssert(NO, @"not implemented");
-}
-
 @end
