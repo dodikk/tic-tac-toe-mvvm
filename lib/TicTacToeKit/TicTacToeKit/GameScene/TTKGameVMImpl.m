@@ -73,9 +73,7 @@
         playerX.playerName = self->_localizer.xPlayerName;
         playerX.isPlayerX = YES;
         playerX.isPlayerO = NO;
-        
-         // TODO : inject images
-        playerX.imageForPosessedCell = nil;
+        playerX.imageForPosessedCell = [self->_imageProvider imageForCellTakenByX];
     }
 
     TTKPlayerPOD* playerO = [TTKPlayerPOD new];
@@ -83,9 +81,7 @@
         playerO.playerName = self->_localizer.oPlayerName;
         playerO.isPlayerX = NO;
         playerO.isPlayerO = YES;
-        
-        // TODO : inject images
-        playerO.imageForPosessedCell = nil;
+        playerO.imageForPosessedCell = [self->_imageProvider imageForCellTakenByO];
     }
     
     
@@ -131,7 +127,7 @@ didTapOnCell:(struct TTKCellPoint)cellPosition
     [self transferTurnAndNotify];
     [self checkGameOverAndNotify];
 }
-//
+
 -(void)updateFieldAndNotify:(struct TTKCellPoint)cellPosition
 {
     id<TTKGameVMDelegate> strongDelegate = self.vcDelegate;
