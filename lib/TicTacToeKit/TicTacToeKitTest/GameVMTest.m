@@ -345,14 +345,14 @@
     
     struct TTKCellPoint firstTurnPosition = {1, 1};
     XCTAssertTrue(0 == self->_turnCount);
-    
+    XCTAssertEqualObjects(@"Turn of player X", self->_sut.turnIndicatorMessage);
     
     
     // WHEN
     [self->_sut view: self
         didTapOnCell: firstTurnPosition];
     XCTAssertTrue(1 == self->_turnCount);
-    
+    XCTAssertEqualObjects(@"Turn of player O", self->_sut.turnIndicatorMessage);
     
     id<TTKPlayer> activePlayerBefore = [self->_sut activePlayer];
     [self->_sut view: self
@@ -381,7 +381,7 @@
     XCTAssertEqualObjects(self->_callbacksLog[0], @"Turn success by |X| : {1, 1}");
     XCTAssertEqualObjects(self->_callbacksLog[1], @"Turn failed by |O| : {1, 1}");
     
-    XCTAssertEqualObjects(@"Turn of player X", self->_sut.turnIndicatorMessage);
+    XCTAssertEqualObjects(@"Turn of player O", self->_sut.turnIndicatorMessage);
 }
 
 
